@@ -1,0 +1,35 @@
+/*広い要素に適用される*/
+
+html,
+/*bodyのみ*/
+body {
+  padding: 0;
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  line-height: 1.6;
+  font-size: 18px;
+}
+
+/*全ての要素に対応*/
+* {
+    /* color:blueviolet; */
+  box-sizing: border-box;
+}
+
+/*リンクの色*/
+a {
+  color: #0070f3;
+  text-decoration: none;
+}
+
+/*リンクのとこに下線が出てくる*/
+a:hover {
+  text-decoration: underline;
+}
+
+/*写真に対して適応*/
+img {
+  max-width: 100%;
+  display: block;
+}
