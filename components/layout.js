@@ -4,12 +4,16 @@ import Image from 'next/image';
 // import styles from '../styles/utils.module.css'
 import Link from 'next/link';
 import utilStyles from '../styles/utils.module.css'
-
+// import Card from './card';
+import CardList from './cardlist';
 
 const name='Takumi Kanno';
+const func_console=(children)=>console.log(children);
+
 export const siteTitle='Next.js Sample Webite'
 export default function Layout({children,home}){
     return (
+        <div>
         <div className={styles.container}>{/**layout.module.css */}
             <Head>
                 <link rel="icon" href="/favicon.ico" />
@@ -30,26 +34,28 @@ export default function Layout({children,home}){
                      {/* home=true→ルートディレクトリ(index)の時 */}
                     <Image
                     priority
-                    src="/images/profile.jpg"
+                    src="/images/profile_chiba.jpg"
                     className={utilStyles.borderCircle}
                     height={144}
                     width={144}
                     alt=""
                     />
                     <h1 className={utilStyles.heading2Xl}>{name}</h1>{/**utils.module.css */}
-                    <Link href="/posts/first-post">Sample Page</Link>
+                    {/* <Link href="/posts/first-post">Sample Page</Link> */}
+                    {/* 写真二つ横並びに出す */}
+                    <CardList />
                     </>
                 ):(//条件不一致の場合(post)
                     <>
                     <Link href="/">
-                        <Image
-                        priority
-                        src="/images/profile.jpg"
-                        className={utilStyles.borderCircle}
-                        height={108}
-                        width={108}
-                        alt=""
-                        />
+                    <Image
+                    priority
+                    src="/images/profile_chiba.jpg"
+                    className={utilStyles.borderCircle}
+                    height={108}
+                    width={108}
+                    alt=""
+                    />
                     </Link>
                     
     {/*     styles/utils.module.css
@@ -73,7 +79,12 @@ export default function Layout({children,home}){
                     </>
                 )}
                 </header>
-                <main>{children}</main>
+                <main>{children[0]}</main>
+                <main>{children[1]}</main>
+                <main>{children[2]}</main>
+                {func_console(children[0])}
+                {func_console(children[1])}
+                {func_console(children[2])}
                 {/* {console.log({home})}
                 {console.log(!{home} +"確認用")} */}
 
@@ -85,6 +96,16 @@ export default function Layout({children,home}){
                     
                 )}
                 {/* <Link href="/"><h2>stylesを使わないバージョン</h2></Link> */}
+        </div>
+         {home && (
+            <footer className={styles.footer}>
+                <div className={utilStyles.padding10px}>
+                <div className={utilStyles.headingMd}>
+                <a href="http://www.ktkr2020.com/myapps/portfolio/kanno-takumi.jsp" >過去のポートフォリオはこちら</a>
+                </div>
+                </div>
+            </footer>
+        )} 
         </div>
     );
 }

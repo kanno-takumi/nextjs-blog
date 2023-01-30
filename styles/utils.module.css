@@ -37,6 +37,10 @@
   .padding1px {
     padding-top: 1px;
   }
+
+  .padding10px{
+    padding-top:10px;
+  }
   
   .list {
     list-style: none;
@@ -51,3 +55,73 @@
   .lightText {
     color: #666;
   }
+
+  .cardContent{
+    width:300px;
+    height:400px;
+    /* background-color:black; */
+    margin:10px;
+    z-index:100;
+    /* display:flex; */
+    padding:10px;
+    box-shadow: 0 4px 15px rgba(0,0,0,.2);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .cardImage{
+    /* position: absolute; */
+    
+    /* width:300px;
+    height:300px; */
+    display:block;
+    margin:0 auto;
+    /* max-width:18rem; */
+    /* width:300px;  */
+   /* color:red; */
+   /* z-index:10000; */
+    /* padding:100px; */
+  }
+
+  .cardTitleBox{
+    width:280px;
+    height:80px;
+    display:flex;
+  }
+
+  .cardTitle{
+    /* padding: 0rem 0.5rem 0; */
+    font-size: 1.5rem;
+    font-weight: bold;
+
+    width:auto;
+    height:auto;
+    text-decoration: none;
+    /* border-bottom: solid 3px black; */
+    /* color:black; */
+    margin:auto;
+    /* text-align:center; */
+  }
+
+  
+  /* .container{
+    max-width:36rem;
+    padding:0 1rem;
+    margin:3rem auto 6rem;
+} */
+    /* .backColor{
+      background-color: red;
+    } */
+
+    .flex{
+      display:flex;
+    }
+
+    .updownMargin{
+      margin:3rem 0 3rem 0;
+    }
+
+    /* .noMargin{
+      Margin-left:0px;
+    } */
+  

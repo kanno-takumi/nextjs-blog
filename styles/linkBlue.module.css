@@ -1,0 +1,10 @@
+/*リンクの色*/
+.linkBlue{
+    color: #0070f3;
+    text-decoration: none;
+  }
+  
+  /*リンクのとこに下線が出てくる*/
+.linkBlue:hover {
+    text-decoration: underline;
+  }

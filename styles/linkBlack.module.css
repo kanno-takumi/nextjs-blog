@@ -1,0 +1,12 @@
+.linkBlack{
+    /* text-decoration: black !important; */
+    /* text-decoration: none; */
+    color:black !important;
+  }
+  
+  /*リンクのとこに下線が出てくる*/
+.linkBlack:hover {
+  /* text-decoration: none !important; */
+  /* background-color: black; */
+  color:black !important;
+}

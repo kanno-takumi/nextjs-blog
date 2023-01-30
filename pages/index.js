@@ -4,6 +4,8 @@ import Link from 'next/link';
 import Date from '../components/date'
 import Layout,{siteTitle} from '../components/layout';
 import { getSortedPostsData } from '../lib/posts';
+import CardList from '../components/cardlist';
+// import { console1 } from '../lib/posts';
 
 export async function getStaticProps(){//getStaticPropsはpageからのみエクスポートされる
   const allPostsData=getSortedPostsData();
@@ -124,11 +126,13 @@ export default function Home({allPostsData}) {//allPostsDataを使える状態�
     //     }
     //   `}</style>
     // </div>
-
+<div>
+{/* {console1()} */}
     <Layout home={true}>
       <Head>
         <title>{siteTitle}</title>
       </Head>
+      {/* <CardList /> */}
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>{/**utils.module.css　$を使って複数classNameを追加できる */}
       <h2 className={utilStyles.headiingLg}>Blog</h2>
       <ul className={utilStyles.list}>{/**ul 箇条書き */}
@@ -159,5 +163,11 @@ export default function Home({allPostsData}) {//allPostsDataを使える状態�
         </p> */}
       </section>
     </Layout>
+    
+    {/* <Head >sample code</Head> */}
+    </div>   
+    
+
+    
   )
 }
