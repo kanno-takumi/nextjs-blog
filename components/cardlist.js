@@ -11,13 +11,13 @@ const card1={
 }
 
 const card2={
-    image:"/images/profile_drive.jpg",
+    image:"/images/profile_cafe.jpg",
     alink:"/",
     title:"スキル",
 }
 
 const card3={
-    image:"",
+    image:"/images/profile_drive.jpg",
     alink:"/",
     title:"趣味"
 }

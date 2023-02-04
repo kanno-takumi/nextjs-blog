@@ -57,8 +57,8 @@
   }
 
   .cardContent{
-    width:300px;
-    height:400px;
+    width:200px;
+    height:260px;
     /* background-color:black; */
     margin:10px;
     z-index:100;
@@ -75,7 +75,7 @@
     /* width:300px;
     height:300px; */
     display:block;
-    margin:0 auto;
+    margin:0 auto 10px auto;
     /* max-width:18rem; */
     /* width:300px;  */
    /* color:red; */
@@ -84,15 +84,18 @@
   }
 
   .cardTitleBox{
-    width:280px;
-    height:80px;
+    width:180px;
+    height:50px;
     display:flex;
+    /* border-radius: 8px; */
+    /* box-shadow: 0 4px 15px rgba(.1,0,0,.1); */
   }
 
   .cardTitle{
     /* padding: 0rem 0.5rem 0; */
-    font-size: 1.5rem;
+    font-size: 1rem;
     font-weight: bold;
+    color:#666;
 
     width:auto;
     height:auto;

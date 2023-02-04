@@ -43,7 +43,9 @@ export default function Layout({children,home}){
                     <h1 className={utilStyles.heading2Xl}>{name}</h1>{/**utils.module.css */}
                     {/* <Link href="/posts/first-post">Sample Page</Link> */}
                     {/* 写真二つ横並びに出す */}
-                    <CardList />
+
+                    {/* <Link href={props.alink} className={`${utilStyles.backColor} ${LinkBlack.linkBlack}`}> */}
+                    <CardList />{/*カードリスト*/}
                     </>
                 ):(//条件不一致の場合(post)
                     <>
