@@ -140,7 +140,7 @@ export default function Home({allPostsData}) {//allPostsDataを使える状態�
       
       {allPostsData.map(({ content, date, title, id }) => (
         <li className={utilStyles.listItem} key={id} >
-          <Link href={`/posts/${id}`}>{title}</Link>
+          <Link href={`/posts/${id}`}>{title}</Link>{/*ダイナミックルーティングに対応*/}
           {/* <br />
           {title}
           <br />

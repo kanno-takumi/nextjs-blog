@@ -1,3 +1,5 @@
+/* module書くとglobalではないと判定される */
+
 .linkBlack{
     /* text-decoration: black !important; */
     /* text-decoration: none; */

@@ -1,43 +1,52 @@
 import Layout from '../../components/layout'
-import { getAllPostIds, getPostData } from '../../lib/cards'
+import { getAllCardIds, getCardData } from '../../lib/cards'
 import Head from 'next/head'
 import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
+import {useRouter} from 'next/router';
 
-export default function Post({ postData }) {
-  return (
-    <Layout>
-      <Head>
-        <title>{postData.title}</title>
-      </Head>
-      <article>
-        <h1 className={utilStyles.headingXl}>{postData.title}</h1>
-        <div className={utilStyles.lightText}>
-          <Date dateString={postData.date} />
-        </div>
-        {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
-        <h2 className={utilStyles.headingMd}>{postData.content}</h2>
-      </article>
-    </Layout>
-  )
+
+export async function getStaticProps({ params }) {
+  //getCardDataの引数はid
+  const cardData = await getCardData(params.cardid.join('/'))//paramsの中にcardidがある。ただcardidは配列なのでそれを1つにくっつる。
+  return {
+    props: {
+      cardData
+    }
+  }
 }
 
 export async function getStaticPaths() {
-  const paths = getAllPostIds()
+  const paths = getAllCardIds()
   return {
     paths,
     fallback: false
   }
 }
 
-export async function getStaticProps({ params }) {
-  const postData = await getPostData(params.cardid)//ここも変更
-  return {
-    props: {
-      postData
-    }
-  }
+export default function Card({ cardData }) {//getStaticPropsから受け取ったcardData
+  // const card=()=>{
+  //   const router=useRouter();
+  //   const{cards,cardid}=router.query;
+  // }
+  return (
+    <Layout>
+      <Head>
+        <title>{cardData.title}</title>
+      </Head>
+      <article>
+        <h1 className={utilStyles.headingXl}>{cardData.title}</h1>
+        <div className={utilStyles.lightText}>
+          <Date dateString={cardData.date} />
+        </div>
+        {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
+        <h2 className={utilStyles.headingMd}>{cardData.content}</h2>
+      </article>
+    </Layout>
+  )
 }
+
+
 
 
 
