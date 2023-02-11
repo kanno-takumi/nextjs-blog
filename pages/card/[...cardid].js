@@ -6,6 +6,7 @@ import utilStyles from '../../styles/utils.module.css'
 import {useRouter} from 'next/router';
 
 
+
 export async function getStaticProps({ params }) {
   //getCardDataの引数はid
   const cardData = await getCardData(params.cardid.join('/'))//paramsの中にcardidがある。ただcardidは配列なのでそれを1つにくっつる。
@@ -17,7 +18,9 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-  const paths = getAllCardIds()
+// const paths="/card/hobby"
+   const paths=getAllCardIds()
+   
   return {
     paths,
     fallback: false

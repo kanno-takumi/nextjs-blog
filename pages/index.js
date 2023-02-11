@@ -23,7 +23,7 @@ export async function getStaticProps(){//getStaticPropsはpageからのみエク
   }
 }
 
-export default function Home({allPostsData}) {//allPostsDataを使える状態になった　
+export default function Home({allPostsData,allCardsData}) {//allPostsDataを使える状態になった　
   return (
 <div>
 {/* {console1()} */}
@@ -32,11 +32,22 @@ export default function Home({allPostsData}) {//allPostsDataを使える状態�
         <title>{siteTitle}</title>
       </Head>
       {/* <CardList /> */}
+
+
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>{/**utils.module.css　$を使って複数classNameを追加できる */}
+      {console.log("allCardsDataの中身")}
+      {console.log(allCardsData)}
+
+      {allCardsData.map(({content,date,title, id})=>(
+        <Link href={`/cards/${id}`}>{title}</Link>
+      ))}
+
+      {/*ブログ部分*/}
       <h2 className={utilStyles.headiingLg}>Blog</h2>
       <ul className={utilStyles.list}>{/**ul 箇条書き */}
       {console.log("allPostsDataの値↓")}
       {console.log(allPostsData)}
+
       {allPostsData.map(({ content, date, title, id }) => (
         <li className={utilStyles.listItem} key={id} >
           <Link href={`/posts/${id}`}>{title}</Link>{/*ダイナミックルーティングに対応*/}
