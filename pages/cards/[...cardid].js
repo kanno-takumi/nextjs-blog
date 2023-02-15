@@ -20,14 +20,15 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
 // const paths="/card/hobby"
-   const receiveCardIds=getAllCardIds().params.returnCardIds//objectの配列
-   const paths=receiveCardIds.map((receiveCardId)=>{
-    return(
-    // receiveCardId.cardid.join('/')
-    path.join("cards",receiveCardId.cardid.join('/'))
-    // path.join("cards",receiveCardId.cardid[1])
-    )
-   })
+  //  const receiveCardIds=getAllCardIds().params.returnCardIds//objectの配列
+  //  const paths=receiveCardIds.map((receiveCardId)=>{
+  //   return(
+  //   // receiveCardId.cardid.join('/')
+  //   path.join("cards",receiveCardId.cardid.join('/'))
+  //   // path.join("cards",receiveCardId.cardid[1])
+  //   )
+  //  })
+      const paths=getAllCardIds()
    
   return {
     paths,
@@ -40,6 +41,8 @@ export default function Card({ cardData }) {//getStaticPropsから受け取っ�
   //   const router=useRouter();
   //   const{cards,cardid}=router.query;
   // }
+  console.log("cardData")
+  console.log(cardData)
   return (
     <Layout>
       <Head>
@@ -48,7 +51,7 @@ export default function Card({ cardData }) {//getStaticPropsから受け取っ�
       <article>
         <h1 className={utilStyles.headingXl}>{cardData.title}</h1>
         <div className={utilStyles.lightText}>
-          <Date dateString={cardData.date} />
+          {/* <Date dateString={cardData.date} /> */}
         </div>
         {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
         <h2 className={utilStyles.headingMd}>{cardData.content}</h2>
