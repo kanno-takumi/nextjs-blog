@@ -10,7 +10,7 @@ import * as path from 'path'
 
 export async function getStaticProps({ params }) {
   //getCardDataの引数はid
-  const cardData = await getCardData(params.cardid.join('/'))//paramsの中にcardidがある。ただcardidは配列なのでそれを1つにくっつる。
+  const cardData = await getCardData(params.cardid)//paramsの中にcardidがある。ただcardidは配列なのでそれを1つにくっつる。
   return {
     props: {
       cardData
