@@ -5,6 +5,7 @@ import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
 
 export default function Post({ postData }) {
+  console.log("getAllPostData()")
   return (
     <Layout>
       <Head>
@@ -25,6 +26,7 @@ export default function Post({ postData }) {
 export async function getStaticPaths() {
   
   const paths = getAllPostIds()
+  
   // console.log("paths")
   // console.log(paths)
   return {

@@ -20,7 +20,6 @@ export async function getStaticProps({ params }) {
 
 export async function getStaticPaths() {
 //ここでpathを決定するから、useRouterは使うことはできない
-
       const paths=getAllCardIds()
    
   return {
