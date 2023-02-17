@@ -19,15 +19,8 @@ export async function getStaticProps({ params }) {
 }
 
 export async function getStaticPaths() {
-// const paths="/card/hobby"
-  //  const receiveCardIds=getAllCardIds().params.returnCardIds//objectの配列
-  //  const paths=receiveCardIds.map((receiveCardId)=>{
-  //   return(
-  //   // receiveCardId.cardid.join('/')
-  //   path.join("cards",receiveCardId.cardid.join('/'))
-  //   // path.join("cards",receiveCardId.cardid[1])
-  //   )
-  //  })
+//ここでpathを決定するから、useRouterは使うことはできない
+
       const paths=getAllCardIds()
    
   return {
