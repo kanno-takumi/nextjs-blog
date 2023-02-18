@@ -38,9 +38,11 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
       {console.log("allCardsDataの中身")}
       {console.log(allCardsData)}
 
-      {allCardsData.map(({content,date,title, id})=>(
-        <Link href={`/cards/${id}`}>{title}</Link>
+      {allCardsData.map(({content,date,title, cardidpath})=>(
+        <Link href={`/cards/${cardidpath}`}>{title}</Link>
       ))}
+
+{allCardsData.map(({content,date,title, cardid})=>console.log(cardid))}
 
       {/*ブログ部分*/}
       <h2 className={utilStyles.headiingLg}>Blog</h2>
