@@ -52,21 +52,25 @@
     margin: 0 0 1.25rem;
   }
   
-  .lightText {
+  /* .lightText {
     color: #666;
-  }
+  } */
 
   .cardContent{
     width:200px;
     height:260px;
     /* background-color:black; */
-    margin:10px;
-    z-index:100;
+    margin:10px 10px 10px 0px ; 
+    /* z-index:100; */
     /* display:flex; */
     padding:10px;
     box-shadow: 0 4px 15px rgba(0,0,0,.2);
     border-radius: 8px;
     overflow: hidden;
+  }
+  .cardContent:hover{
+    text-decoration:underline;
+    text-decoration-color: #666 !important;
   }
 
   .cardImage{
@@ -92,11 +96,11 @@
   }
 
   .cardTitle{
+
     /* padding: 0rem 0.5rem 0; */
     font-size: 1rem;
     font-weight: bold;
     color:#666;
-
     width:auto;
     height:auto;
     text-decoration: none;
@@ -105,7 +109,6 @@
     margin:auto;
     /* text-align:center; */
   }
-
   
   /* .container{
     max-width:36rem;
@@ -127,4 +130,8 @@
     /* .noMargin{
       Margin-left:0px;
     } */
+
+    .center{
+      align-items:center;
+  }
   

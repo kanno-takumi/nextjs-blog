@@ -3,18 +3,14 @@ import Link from 'next/link';
 import utilStyles from '../styles/utils.module.css'
 import LinkBlack from '../styles/linkBlack.module.css'
 
-const style={
-    border:"1px solid black",
-    width:"1000px",
-    margin:"100px",
-}
+// const style={
+//     border:"1px solid black",
+//     width:"1000px",
+//     margin:"100px",
+// }
 
 export default function Card(props){
     return(
-        // <div className={utilStyles.backColor} >
-        // <div className={`${utilStyles.cards} ${linkDesign}`}>
-        <div className={utilStyles.cards}>
-             <Link href={props.alink} className={`${utilStyles.backColor} ${LinkBlack.linkBlack}`}>
                 <div className={utilStyles.cardContent}>
                 <div className={utilStyles.cardImage}>     
                 <Image 
@@ -32,27 +28,6 @@ export default function Card(props){
                 <div className={utilStyles.cardTitleBox}>
                 <div className={utilStyles.cardTitle}>{props.title}</div>
                 </div>
-                {/* </div> */}
                 </div>
-            </Link>
-             {/* <Link href="/" className={`${utilStyles.backColor} ${LinkBlack.linkBlack}`}>
-                <div className={utilStyles.cardContent}>
-                <div className={utilStyles.cardImage}>
-                <Image 
-                src="/images/profile_drive.jpg"
-                // className={styles.profilePictures}
-                 height={300}
-                 width={300}
-                alt=""
-                //  fill
-                //  style={{objectFit:'cover',}}
-                />
-                </div>
-                <div className={utilStyles.cardTitleBox}>
-                <div className={utilStyles.cardTitle}>スキル</div>
-                </div>
-                </div>
-            </Link> */}
-         </div>
     )
 }

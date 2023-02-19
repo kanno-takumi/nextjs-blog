@@ -45,7 +45,6 @@ export default function Layout({children,home}){
                     {/* 写真二つ横並びに出す */}
 
                     {/* <Link href={props.alink} className={`${utilStyles.backColor} ${LinkBlack.linkBlack}`}> */}
-                    <CardList />{/*カードリスト*/}
                     </>
                 ):(//条件不一致の場合(post)
                     <>

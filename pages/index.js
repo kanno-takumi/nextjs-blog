@@ -1,11 +1,13 @@
 import Head from 'next/head'
 import utilStyles from '../styles/utils.module.css';
+import styles from '../components/layout.module.css';
+import linkBlack from '../styles/linkBlack.module.css';
 import Link from 'next/link';
 import Date from '../components/date'
 import Layout,{siteTitle} from '../components/layout';
 import { getSortedPostsData } from '../lib/posts';
 import { getSortedCardsData } from '../lib/cards';
-import CardList from '../components/cardlist';
+import Card from '../components/card';
 // import { console1 } from '../lib/posts';
 
 export async function getStaticProps(){//getStaticPropsはpageからのみエクスポートされる
@@ -31,18 +33,23 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
       <Head>
         <title>{siteTitle}</title>
       </Head>
-      {/* <CardList /> */}
-
 
       <section className={`${utilStyles.headingMd} ${utilStyles.padding1px}`}>{/**utils.module.css　$を使って複数classNameを追加できる */}
-      {console.log("allCardsDataの中身")}
-      {console.log(allCardsData)}
+      {/* {console.log("allCardsDataの中身")}
+      {console.log(allCardsData)} */}
 
-      {allCardsData.map(({content,date,title, cardidpath})=>(
-        <Link href={`/cards/${cardidpath}`}>{title}</Link>
+      {/*カード部分*/}
+      {/* <div className={utilStyles.center}> */}
+        <div className={utilStyles.flex}>
+    {allCardsData.map(({title, cardidpath, imagepath})=>(
+        
+        <Link href={`/cards/${cardidpath}`} >
+          <Card image={imagepath} title={title} />
+          </Link>
       ))}
-
-{allCardsData.map(({content,date,title, cardid})=>console.log(cardid))}
+      </div >
+      {/* </div> */}
+{/* {allCardsData.map(({content,date,title, cardid,imagepath})=>console.log(cardid))} */}
 
       {/*ブログ部分*/}
       <h2 className={utilStyles.headiingLg}>Blog</h2>
@@ -53,12 +60,6 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
       {allPostsData.map(({ content, date, title, id }) => (
         <li className={utilStyles.listItem} key={id} >
           <Link href={`/posts/${id}`}>{title}</Link>{/*ダイナミックルーティングに対応*/}
-          {/* <br />
-          {title}
-          <br />
-          {content}
-          <br />
-           */}
             <small className={utilStyles.lightText}>{/*smallタグ→テキストを一回り小さくするタグ */}
             <br />
             <Date dateString={date} />
@@ -67,12 +68,6 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
         </li>
       ))}
       </ul>
-        {/* <p>
-          大学3年生で、プログラミングについて学習中です。
-        </p> */}
-        {/* <p>
-          <a href="http://www.ktkr2020.com/myapps/portfolio/kanno-takumi.jsp">過去のポートフォリオはこちら</a>
-        </p> */}
       </section>
     </Layout>
     

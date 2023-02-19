@@ -4,4 +4,5 @@ title: '趣味'
 # content: 'Next.jsという機能を使って1からブログの作成を始めます。タイトル、内容、日時を表示します。'
 content: 'バレーボール、ピアノ、カフェ'
 date: '2023-01-29'
+imagepath: '/images/profile_drive.jpg'
 ---
