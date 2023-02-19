@@ -39,8 +39,9 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
       {console.log(allCardsData)} */}
 
       {/*カード部分*/}
-      {/* <div className={utilStyles.center}> */}
-        <div className={utilStyles.flex}>
+      {/* <div className=> */}
+      {/* <div className={utilStyles.cardsBox}> */}
+        <div className={`${utilStyles.flex} ${utilStyles.cardsBox} ${utilStyles.center}`} >
     {allCardsData.map(({title, cardidpath, imagepath})=>(
         
         <Link href={`/cards/${cardidpath}`} >
@@ -48,6 +49,7 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
           </Link>
       ))}
       </div >
+      {/* </div> */}
       {/* </div> */}
 {/* {allCardsData.map(({content,date,title, cardid,imagepath})=>console.log(cardid))} */}
 

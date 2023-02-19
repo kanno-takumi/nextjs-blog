@@ -32,5 +32,5 @@ a:hover {
 /*写真に対して適応*/
 img {
   max-width: 100%;
-  display: block;
+  /* display: block; */
 }
