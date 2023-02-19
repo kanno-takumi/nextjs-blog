@@ -6,6 +6,29 @@ import utilStyles from '../../styles/utils.module.css'
 import {useRouter} from 'next/router';
 import * as path from 'path'
 
+export default function Card({ cardData }) {//getStaticPropsから受け取ったcardData
+  // const card=()=>{
+  //   const router=useRouter();
+  //   const{cards,cardid}=router.query;
+  // }
+  console.log("cardData")
+  console.log(cardData)
+  return (
+    <Layout>
+      <Head>
+        <title>{cardData.title}</title>
+      </Head>
+      <article>
+        <h1 className={utilStyles.headingXl}>{cardData.title}</h1>
+        <div className={utilStyles.lightText}>
+          <Date dateString={cardData.date} />
+        </div>
+        {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
+        <h2 className={utilStyles.headingMd}>{cardData.content}</h2>
+      </article>
+    </Layout>
+  )
+}
 
 
 export async function getStaticProps({ params }) {
@@ -28,29 +51,6 @@ export async function getStaticPaths() {
   }
 }
 
-export default function Card({ cardData }) {//getStaticPropsから受け取ったcardData
-  // const card=()=>{
-  //   const router=useRouter();
-  //   const{cards,cardid}=router.query;
-  // }
-  console.log("cardData")
-  console.log(cardData)
-  return (
-    <Layout>
-      <Head>
-        <title>{cardData.title}</title>
-      </Head>
-      <article>
-        <h1 className={utilStyles.headingXl}>{cardData.title}</h1>
-        <div className={utilStyles.lightText}>
-          {/* <Date dateString={cardData.date} /> */}
-        </div>
-        {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
-        <h2 className={utilStyles.headingMd}>{cardData.content}</h2>
-      </article>
-    </Layout>
-  )
-}
 
 
 
