@@ -83,7 +83,6 @@ export default function Layout({children,home}){
                 <meta name="twitter:card" content="summary_large_image" /> 
             </Head>
            
-                
                 <main>{children[0]}</main>
                 <main>{children[1]}</main>
                 <main>{children[2]}</main>
