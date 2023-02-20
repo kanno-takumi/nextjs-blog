@@ -60,7 +60,7 @@
   }
 
   .cardContent{
-    width:190px;
+    width:185px;/*200px;*/
     height:260px;
     /* background-color:black; */
     margin:10px 10px 10px 0px ; 
