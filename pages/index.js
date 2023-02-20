@@ -41,7 +41,7 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
       {/*カード部分*/}
       {/* <div className=> */}
       {/* <div className={utilStyles.cardsBox}> */}
-        <div className={`${utilStyles.flex} ${utilStyles.cardsBox} ${utilStyles.center}`} >
+        <div className={`${utilStyles.flex} ${utilStyles.cardsBox} ${utilStyles.center} ${utilStyles.bottomPadding}`}>
     {allCardsData.map(({title, cardidpath, imagepath})=>(
         
         <Link href={`/cards/${cardidpath}`} >

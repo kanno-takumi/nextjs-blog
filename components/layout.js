@@ -14,22 +14,9 @@ export const siteTitle='Next.js Sample Webite'
 export default function Layout({children,home}){
     return (
         <div>
-        <div className={styles.container}>{/**layout.module.css */}
-            <Head>
-                <link rel="icon" href="/favicon.ico" />
-                <meta 
-                     name="description"
-                     content="Learn how to build a personal website using Next.js"
-                />
-                <meta
-                    property="og:image"
-                    content={'https://og-image.vercel.app/${encodeURI(siteTitle,)}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg'}
-                    />
-                <meta name="og:title" content={siteTitle} />
-                <meta name="twitter:card" content="summary_large_image" /> 
-            </Head>
-            <header className={styles.header}>{/**layout.module.css */}
-                {home?(//条件
+            <div className={styles.topcontainer}>
+             <header className={styles.header}>{/**layout.module.css */}
+            {home?(//条件
                     <>
                      {/* home=true→ルートディレクトリ(index)の時 */}
                     <Image
@@ -69,8 +56,6 @@ export default function Layout({children,home}){
     color: inherit;
     /* 親要素を引き継ぐ 
     */}
-  
-
                     <h2 className={utilStyles.headingLg}>{/**utils.module.css */}
                         <Link href="/" className={utilStyles.colorInherit}>
                         {/* <Link href="/"> */}
@@ -78,8 +63,27 @@ export default function Layout({children,home}){
                         </Link>
                     </h2>
                     </>
+                    
                 )}
                 </header>
+                </div>
+
+        <div className={styles.container}>{/**layout.module.css */}
+            <Head>
+                <link rel="icon" href="/favicon.ico" />
+                <meta 
+                     name="description"
+                     content="Learn how to build a personal website using Next.js"
+                />
+                <meta
+                    property="og:image"
+                    content={'https://og-image.vercel.app/${encodeURI(siteTitle,)}.png?theme=light&md=0&fontSize=75px&images=https%3A%2F%2Fassets.vercel.com%2Fimage%2Fupload%2Ffront%2Fassets%2Fdesign%2Fnextjs-black-logo.svg'}
+                    />
+                <meta name="og:title" content={siteTitle} />
+                <meta name="twitter:card" content="summary_large_image" /> 
+            </Head>
+           
+                
                 <main>{children[0]}</main>
                 <main>{children[1]}</main>
                 <main>{children[2]}</main>
