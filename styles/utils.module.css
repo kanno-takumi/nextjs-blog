@@ -60,7 +60,7 @@
     overflow-x: scroll !important;
   }
   .cardsBox::-webkit-scrollbar{
-    width: 10px;
+    height: 10px;
  }
 
   .cardContent{
