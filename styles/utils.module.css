@@ -59,6 +59,9 @@
     /* width:630px; */
     overflow-x: scroll !important;
   }
+  .cardsBox::-webkit-scrollbar{
+    width: 10px;
+ }
 
   .cardContent{
     width:197px;/*200px;*/
