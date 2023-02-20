@@ -57,6 +57,7 @@
   } */
   .cardsBox{
     /* width:630px; */
+    overflow-x: scroll !important;
   }
 
   .cardContent{
