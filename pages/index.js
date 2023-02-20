@@ -41,6 +41,7 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
       {/*カード部分*/}
       {/* <div className=> */}
       {/* <div className={utilStyles.cardsBox}> */}
+      <h2 className={utilStyles.headiingLg}>Introduction</h2>
         <div className={`${utilStyles.flex} ${utilStyles.cardsBox} ${utilStyles.center} ${utilStyles.bottomPadding}`}>
     {allCardsData.map(({title, cardidpath, imagepath})=>(
         
