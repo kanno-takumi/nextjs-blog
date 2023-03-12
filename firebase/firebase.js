@@ -1,9 +1,6 @@
-// Import the functions you need from the SDKs you need
-import { initializeApp } from "firebase/app";
-import {getFirestore} from "firebase/firestore";
-import { getAnalytics } from "firebase/analytics";
-// TODO: Add SDKs for Firebase products that you want to use
-// https://firebase.google.com/docs/web/setup#available-libraries
+import { initializeApp } from 'firebase/app';
+import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import React,{useState} from 'react';
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -19,7 +16,27 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-// const analytics = getAnalytics(app);
-export const db = getFirestore(app);
 
-console.log(app);
+
+// Get a list of cities from your database
+export async function getPosts() {//promiseオブジェクトを返す
+  const db = getFirestore(app);
+  const Col = collection(db, 'posts');
+  const querySnapshot = await getDocs(Col);//async await→非同期処理
+  const postsArray=[]
+  querySnapshot.forEach((doc) =>
+    postsArray.push(doc.data())
+    );
+  console.log(postsArray)
+  return postsArray
+} 
+
+// export async function posts(){
+//     const postsList=await getPosts(db); 
+//     return postsList;
+// }
+
+export function sample(num){
+  const calcNum=num*num;
+  return calcNum
+}
