@@ -8,6 +8,7 @@ import Layout,{siteTitle} from '../components/layout';
 import { getSortedPostsData } from '../lib/posts';
 import { getSortedCardsData } from '../lib/cards';
 import Card from '../components/card';
+import postButton from '../styles/postAddButton.module.css'
 // import { console1 } from '../lib/posts';
 // import useSWR from 'swr'
 
@@ -56,8 +57,6 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
           </Link>
       ))}
       </div >
-      {/* </div> */}
-      {/* </div> */}
 {/* {allCardsData.map(({content,date,title, cardid,imagepath})=>console.log(cardid))} */}
 
       {/*ブログ部分*/}
@@ -76,6 +75,11 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
             {console.log({date})}
         </li>
       ))}
+      <div className={postButton.btnset}>
+      <a href="#" className={` ${postButton.btn} ${postButton.btnmod} ${postButton.btnborder} ${postButton.btnlarge} ${postButton.btnround}`}>
+          記事を追加</a>
+      </div>
+       
       </ul>
       </section>
     </Layout>

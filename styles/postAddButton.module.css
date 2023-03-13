@@ -1,0 +1,66 @@
+
+.btnset{
+    margin:2rem 0 0rem 0;
+}
+
+.btnmod a{
+    /* -webkit-box-sizing: border-box; */
+    /* -moz-box-sizing: border-box; */
+    /* box-sizing: border-box; */
+    /* padding: 4px 13px; */
+    /* color: #fff; */
+    /* background: rgba(34,34,34, .9); */
+    /* border: 2px solid transparent; */
+    /* font-size: 18px; */
+    /* font-weight: 400; */
+    /* text-transform: uppercase; */
+    /* text-decoration: none; */
+    /* letter-spacing: 2px; */
+     
+    /* -webkit-border-radius: 0;
+    -moz-border-radius: 0;
+    border-radius: 0; */
+     
+    /* -webkit-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);  
+    -moz-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000); 
+    -o-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000);
+    -ms-transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000); 
+    transition: all 0.2s cubic-bezier(0.000, 0.000, 0.580, 1.000); */
+    
+}
+.btnmod:hover,
+.btnmod:focus,
+a.btnmod:hover,
+
+a.btnmod:focus{
+    font-weight: 18px;
+    color: rgba(255,255,255, .85);
+    background: rgba(0,0,0, .7);
+    text-decoration: none;
+    outline: none;
+}
+.btnmod:active{
+    cursor: pointer !important;
+}
+
+.btnmod.btnlarge{
+    padding: 12px 45px;
+    font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
+    Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+  font-size: 18px;
+} 
+
+/* ==============================
+   border黒枠ボタン
+   ============================== */
+.btnmod.btnborder{
+    color: #0070f3;
+    border: 2px solid #0070f3;
+    background: transparent;
+}
+.btnmod.btnborder:hover,
+.btnmod.btnborder:focus{
+    color: #fff;
+    border-color: transparent;
+    background: #6e8496;
+}
