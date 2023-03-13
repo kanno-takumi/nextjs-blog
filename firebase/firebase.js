@@ -1,5 +1,6 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs } from 'firebase/firestore';
+import { getFirestore, collection, getDocs,query,where, } from 'firebase/firestore';
+import { documentId } from 'firebase/firestore';
 import React,{useState} from 'react';
 import { siteTitle } from '../components/layout';
 
@@ -38,7 +39,6 @@ export async function getPosts() {//promiseオブジェクトを返す
   });
   // console.log(posts)
   return posts
-  
   // return postsArray
 } 
 
@@ -47,7 +47,13 @@ export async function getPosts() {//promiseオブジェクトを返す
 //     return postsList;
 // }
 
-export function sample(num){
-  const calcNum=num*num;
-  return calcNum
-}
+// export async function getPostsfromId(id){
+//   const posts=[];
+//   const db=getFirestore(app);
+//   const q=query(collection(db,"posts")
+//   ,where(documentId(),'==',id));
+//   const querySnapshot=await getDocs(q);
+  
+//   console.log(querySnapshot)
+//   return querySnapshot;
+// }

@@ -32,6 +32,8 @@ export default function Card({ cardData }) {//getStaticPropsから受け取っ�
 
 
 export async function getStaticProps({ params }) {
+  console.log("params")
+  console.log(params)
   //getCardDataの引数はid
   const cardData = await getCardData(params.cardid)//paramsの中にcardidがある。ただcardidは配列なのでそれを1つにくっつる。
   return {
