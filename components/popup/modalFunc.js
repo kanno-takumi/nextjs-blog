@@ -12,7 +12,7 @@ export default function Button(){
     return(
         <>
             <div className={postButton.btnset}>
-                <div className={` ${postButton.btn} ${postButton.btnmod} ${postButton.btnborder} ${postButton.btnlarge} ${postButton.btnround}`}
+                <div className={`  ${postButton.btnmod} ${postButton.btnborder} ${postButton.btnlarge} ${postButton.btnround}`}
                 onClick={()=>openModal(true)}>
                     記事を追加
                 </div>

@@ -13,7 +13,7 @@ export default function modalContent(){
 
     return(
         <>
-            <form>
+            <form method="post" action="/">
                 <div className={modalStyles.formLayout}>
                 <label htmlFor="title">タイトル　</label>
                 <input name="title" id="title" type="text" className={modalStyles.textLayout}/>

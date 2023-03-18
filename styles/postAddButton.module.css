@@ -1,7 +1,18 @@
 
+/* 本当は真ん中にしたい */
 .btnset{
-    margin:2rem 0 0rem 0;
+    margin:2rem 0 2rem 0;
+    width:120px;
+    justify-content: center;
+	align-items: center;
 }
+
+
+/* .btnmod{
+    justify-content: center;
+	align-items: center;
+    width:200px;
+} */
 
 .btnmod a{
     /* -webkit-box-sizing: border-box; */
@@ -33,6 +44,7 @@
 a.btnmod:hover,
 
 a.btnmod:focus{
+    cursor:pointer;
     font-weight: 18px;
     color: rgba(255,255,255, .85);
     background: rgba(0,0,0, .7);
@@ -44,7 +56,7 @@ a.btnmod:focus{
 }
 
 .btnmod.btnlarge{
-    padding: 12px 45px;
+    padding: 12px 10px;
     font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen, Ubuntu,
     Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
   font-size: 18px;
