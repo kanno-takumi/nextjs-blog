@@ -8,8 +8,9 @@ import Layout,{siteTitle} from '../components/layout';
 import { getSortedPostsData } from '../lib/posts';
 import { getSortedCardsData } from '../lib/cards';
 import Card from '../components/card';
-import postButton from '../styles/postAddButton.module.css'
-// import { console1 } from '../lib/posts';
+
+// import Modal from '../components/popup/modal'
+import ModalFunc from '../components/popup/modalFunc'
 // import useSWR from 'swr'
 
 export async function getStaticProps(){//getStaticPropsはpageからのみエクスポートされる
@@ -75,11 +76,7 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
             {console.log({date})}
         </li>
       ))}
-      <div className={postButton.btnset}>
-      <a href="#" className={` ${postButton.btn} ${postButton.btnmod} ${postButton.btnborder} ${postButton.btnlarge} ${postButton.btnround}`}>
-          記事を追加</a>
-      </div>
-       
+      <ModalFunc />
       </ul>
       </section>
     </Layout>
