@@ -1,5 +1,5 @@
 import postButton from '../../styles/postAddButton.module.css'
-import modalStyle from '../../styles/popup/modal.module.css'
+import modalStyles from '../../styles/popup/modal.module.css'
 import React, {useState} from 'react' 
 import ModalContent from './modalContent'
 
@@ -20,10 +20,10 @@ export default function Button(){
 
             {modal && (
             <div>
-                <div className={modalStyle.isOpen}>
-	                <div className={modalStyle.window}>
+                <div className={modalStyles.isOpen}>
+	                <div className={modalStyles.window}>
                         <ModalContent />
-                    <div className={modalStyle.close}//×の部分 
+                    <div className={modalStyles.close}//×の部分 
                         onClick={()=>{openModal(false)}}
                     >×</div>
                         
