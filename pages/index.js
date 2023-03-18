@@ -8,10 +8,17 @@ import Layout,{siteTitle} from '../components/layout';
 import { getSortedPostsData } from '../lib/posts';
 import { getSortedCardsData } from '../lib/cards';
 import Card from '../components/card';
-// import { console1 } from '../lib/posts';
+
+// import Modal from '../components/popup/modal'
+import ModalFunc from '../components/popup/modalFunc'
+// import useSWR from 'swr'
 
 export async function getStaticProps(){//getStaticPropsはpageからのみエクスポートされる
-  const allPostsData=getSortedPostsData();//allPostsDataはid,title,contentを持った配列
+  // const allPostsData=getSortedPostsData();//allPostsDataはid,title,contentを持った配列
+
+  const allPostsData=await getSortedPostsData();
+  // console.log("aaaaaaaaaaa")
+  // console.log(allPostsData)
   const allCardsData=getSortedCardsData();
 
   // console.log("allPostsDataの値＝getSortedPostsDataの値")
@@ -24,6 +31,7 @@ export async function getStaticProps(){//getStaticPropsはpageからのみエク
     }
   }
 }
+
 
 export default function Home({allPostsData,allCardsData}) {//allPostsDataを使える状態になった　
   return (
@@ -50,8 +58,6 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
           </Link>
       ))}
       </div >
-      {/* </div> */}
-      {/* </div> */}
 {/* {allCardsData.map(({content,date,title, cardid,imagepath})=>console.log(cardid))} */}
 
       {/*ブログ部分*/}
@@ -65,11 +71,12 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
           <Link href={`/posts/${id}`}>{title}</Link>{/*ダイナミックルーティングに対応*/}
             <small className={utilStyles.lightText}>{/*smallタグ→テキストを一回り小さくするタグ */}
             <br />
-            <Date dateString={date} />
+            {date}
             </small>
             {console.log({date})}
         </li>
       ))}
+      <ModalFunc />
       </ul>
       </section>
     </Layout>
