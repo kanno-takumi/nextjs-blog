@@ -57,25 +57,8 @@
   } */
   .cardsBox{
     /* width:630px; */
-    overflow-x: scroll !important;
+    overflow-x: scroll visible !important;
   }
-  .scrollbar::-webkit-scrollbar {
-    width: 10px;
-    height: 10px;
-  }
-  /* スクロールバーの形を設定する */
-  .scrollbarthumbrounded::-webkit-scrollbar-thumb {
-    border-radius: 0.25rem;
-  }
-  /* スクロールバーの色を設定する */
-  .scrollbarthumbblack::-webkit-scrollbar-thumb {
-    --bg-opacity: 1;
-    background-color: black;
-  }
-
-  .cardsBox::-webkit-scrollbar{
-    height: 10px;
- }
 
   .cardContent{
     width:197px;/*200px;*/

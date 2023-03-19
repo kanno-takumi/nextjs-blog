@@ -12,6 +12,7 @@ import Card from '../components/card';
 // import Modal from '../components/popup/modal'
 import ModalFunc from '../components/popup/modalFunc'
 // import useSWR from 'swr'
+import ScrollHint from 'scroll-hint';
 
 export async function getStaticProps(){//getStaticPropsはpageからのみエクスポートされる
   // const allPostsData=getSortedPostsData();//allPostsDataはid,title,contentを持った配列
@@ -52,9 +53,6 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
       <h2 className={utilStyles.headiingLg}>Introduction</h2>
         <div className=
         {`${utilStyles.flex} ${utilStyles.cardsBox} ${utilStyles.center} ${utilStyles.bottomPadding}
-        ${utilStyles.scrollbar}
-        ${utilStyles.scrollbarthumbrounded}
-        ${utilStyles.scrollbarthumbblack}
         
         `}>
     {allCardsData.map(({title, cardidpath, imagepath})=>(
