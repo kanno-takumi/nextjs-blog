@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs,query,where, } from 'firebase/firestore';
+import { getFirestore, collection, getDocs,query,where,addDoc } from 'firebase/firestore';
 import { documentId } from 'firebase/firestore';
 import React,{useState} from 'react';
 import { siteTitle } from '../components/layout';
@@ -24,12 +24,11 @@ const firebaseConfig = {
 
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
-
+const db = getFirestore(app);
 
 // Get a list of cities from your database
 export async function getPosts() {//promiseオブジェクトを返す
   const posts=[];//オブジェクトの配列
-  const db = getFirestore(app);
   const Col = collection(db, 'posts');
   const querySnapshot = await getDocs(Col);//async await→非同期処理
   querySnapshot.forEach((doc) =>
@@ -57,3 +56,18 @@ export async function getPosts() {//promiseオブジェクトを返す
 //   console.log(querySnapshot)
 //   return querySnapshot;
 // }
+
+export async function addPosts(postData){
+  try {
+    console.log("aaaaaaaaaaaaaa")
+    const docRef = await addDoc(collection(db, "posts"), {
+      content:postData.content,
+      date: postData.date,
+      title: postData.title
+    });
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+}
+

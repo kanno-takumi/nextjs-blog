@@ -1,6 +1,8 @@
 import * as React from 'react';
 import modalStyles from '../../styles/popup/modal.module.css'
-// import { useForm } from 'react-hook-form';
+import { useForm } from 'react-hook-form';
+import {addPosts} from '../../firebase/firebase'
+import Router,{useRouter} from 'next/router'
 
 // formValues ={
 //     title,
@@ -8,31 +10,60 @@ import modalStyles from '../../styles/popup/modal.module.css'
 //     content
 // }
 
-export default function modalContent(){
+export default function modalContent(props){
     // const { register } = useForm(); 
+    // const title="sample"
+    // const date="20230319"
+    // const content="samplecontent"
+    // let postData = {title,date,content}
+    const router = useRouter()
+    
+    const {register,handleSubmit}=useForm();
+    const onSubmit =async (data) => {
+        console.log(data) ;
+        props.propsopenModal(false);
+        await addPosts(data);
+        router.reload(); 
+    }
+    
 
     return(
         <>
-            <form method="post" action="/">
+            <form onSubmit={handleSubmit(onSubmit)}>
                 <div className={modalStyles.formLayout}>
                 <label htmlFor="title">タイトル　</label>
-                <input name="title" id="title" type="text" className={modalStyles.textLayout}/>
+                <input name="title" id="title" type="text" className={modalStyles.textLayout} {...register('title')}/>
                 </div>
 
                 <div className={modalStyles.formLayout}>
                 <label htmlFor="date" > 　　日付　</label>
-                <input name="date" id="date" type="number" className={modalStyles.textLayout} />
+                <input name="date" id="date" type="number" className={modalStyles.textLayout} {...register('date')}/>
                 </div>
 
                 <div className={modalStyles.formLayout}>
                 <div className={modalStyles.textPosition}>　　内容</div>
                 <label htmlFor="content" >　　　　　</label>
-                <textarea name="content" id="content" type="text" rows="12" cols="50" wrap="soft" className={`${modalStyles.textLayout} `}>
+                <textarea name="content" id="content" type="text" rows="12" cols="50" wrap="soft" className={`${modalStyles.textLayout} `} {...register('content')}>
                 日付は8桁の数字で入力
                 </textarea>
                 </div>
 
-                <button className={modalStyles.button}>決定</button>
+
+                <button type="submit" className={modalStyles.button}>決定</button>
+
+
+                {/* <div className={modalStyles.button}
+                onClick={async (event)=>{
+                    
+                    console.log(title);
+                    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+                    const value=event.target.value;
+                    props.propsopenModal(false);
+                    await addPosts({title,date,content});
+                    // router.reload();          
+                }}>
+                   確定
+                </div> */}
             </form>
         </>
     )
