@@ -58,6 +58,20 @@
   .cardsBox{
     /* width:630px; */
     overflow-x: scroll !important;
+     -ms-overflow-style: none;
+    scrollbar-width: none;
+  }
+  .cardsBox::-webkit-scrollbar{
+    /* display: none; */
+      width: 12px;
+  }
+  .cardsBox::-webkit-scrollbar-track {
+    background: #F2F2F2;
+    border-radius: 10px;
+  }
+  .cardsBox::-webkit-scrollbar-thumb {
+    background: #666;
+    border-radius: 10px;
   }
 
   .cardContent{
@@ -71,7 +85,10 @@
     box-shadow: 0 4px 15px rgba(0,0,0,.2);
     border-radius: 8px;
     /* overflow:hidden; */
+   
   }
+  
+
   .cardContent:hover{
     text-decoration:underline;
     text-decoration-color: #666 !important;
