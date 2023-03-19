@@ -50,7 +50,13 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
       {/* <div className=> */}
       {/* <div className={utilStyles.cardsBox}> */}
       <h2 className={utilStyles.headiingLg}>Introduction</h2>
-        <div className={`${utilStyles.flex} ${utilStyles.cardsBox} ${utilStyles.center} ${utilStyles.bottomPadding}`}>
+        <div className=
+        {`${utilStyles.flex} ${utilStyles.cardsBox} ${utilStyles.center} ${utilStyles.bottomPadding}
+        ${utilStyles.scrollbar}
+        ${utilStyles.scrollbar-thumb-rounded}
+        ${utilStyles.scrollbar-thumb-black}
+        
+        `}>
     {allCardsData.map(({title, cardidpath, imagepath})=>(
         
         <Link href={`/cards/${cardidpath}`} >

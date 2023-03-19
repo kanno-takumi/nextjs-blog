@@ -59,6 +59,20 @@
     /* width:630px; */
     overflow-x: scroll !important;
   }
+  .scrollbar::-webkit-scrollbar {
+    width: 10px;
+    height: 10px;
+  }
+  /* スクロールバーの形を設定する */
+  .scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
+    border-radius: 0.25rem;
+  }
+  /* スクロールバーの色を設定する */
+  .scrollbar-thumb-black::-webkit-scrollbar-thumb {
+    --bg-opacity: 1;
+    background-color: black;
+  }
+
   .cardsBox::-webkit-scrollbar{
     height: 10px;
  }
