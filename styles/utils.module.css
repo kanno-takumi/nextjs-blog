@@ -58,7 +58,6 @@
   .cardsBox{
     /* width:630px; */
     overflow-x: scroll !important;
-    overflow-x: visible;
   }
 
   .cardContent{
