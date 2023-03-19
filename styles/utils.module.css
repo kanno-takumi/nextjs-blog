@@ -64,11 +64,11 @@
     height: 10px;
   }
   /* スクロールバーの形を設定する */
-  .scrollbar-thumb-rounded::-webkit-scrollbar-thumb {
+  .scrollbarthumbrounded::-webkit-scrollbar-thumb {
     border-radius: 0.25rem;
   }
   /* スクロールバーの色を設定する */
-  .scrollbar-thumb-black::-webkit-scrollbar-thumb {
+  .scrollbarthumbblack::-webkit-scrollbar-thumb {
     --bg-opacity: 1;
     background-color: black;
   }

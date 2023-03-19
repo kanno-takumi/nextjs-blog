@@ -53,8 +53,8 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
         <div className=
         {`${utilStyles.flex} ${utilStyles.cardsBox} ${utilStyles.center} ${utilStyles.bottomPadding}
         ${utilStyles.scrollbar}
-        ${utilStyles.scrollbar-thumb-rounded}
-        ${utilStyles.scrollbar-thumb-black}
+        ${utilStyles.scrollbarthumbrounded}
+        ${utilStyles.scrollbarthumbblack}
         
         `}>
     {allCardsData.map(({title, cardidpath, imagepath})=>(

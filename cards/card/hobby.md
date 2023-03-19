@@ -1,7 +1,7 @@
 ---
 order: 3
 title: '趣味'
-content: 'バレーボール、ピアノ、カフェ、スノボ、ダンスドライブ、SEKAI NO OWARI'
+content: 'バレーボール、ピアノ、カフェ、スノボ、ドライブ'
 date: '2023-01-29'
-imagepath: '/images/profile_drive.jpg'
+imagepath: '/images/profile_snow.jpg'
 ---
