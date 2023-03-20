@@ -14,7 +14,7 @@ import ModalFunc from '../components/popup/modalFunc'
 // import useSWR from 'swr'
 import ScrollHint from 'scroll-hint';
 
-export async function getStaticProps(){//getStaticPropsはpageからのみエクスポートされる
+export async function getServerSideProps(){//getStaticPropsはpageからのみエクスポートされる
   // const allPostsData=getSortedPostsData();//allPostsDataはid,title,contentを持った配列
 
   const allPostsData=await getSortedPostsData();
