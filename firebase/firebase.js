@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs,query,where,addDoc } from 'firebase/firestore';
+import { getFirestore, collection, getDocs,query,where,addDoc,onSnapshot,doc} from 'firebase/firestore';
 import { documentId } from 'firebase/firestore';
 import React,{useState} from 'react';
 import { siteTitle } from '../components/layout';
@@ -27,16 +27,40 @@ const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
 // Get a list of cities from your database
+
+//onSnapshot 引数1→欲しいデータの前のデータ（例：ドキュメント→コレクション）
+//引数2→処理
+
 export async function getPosts() {//promiseオブジェクトを返す
   const posts=[];//オブジェクトの配列
-  const Col = collection(db, 'posts');
-  const querySnapshot = await getDocs(Col);//async await→非同期処理
-  querySnapshot.forEach((doc) =>
-  { const post=doc.data() 
-    // console.log(post)//表示される
-    posts.push({...post,id:doc.id })
-  });
-  // console.log(posts)
+  // const querySnapshot = onSnapshot(docQuery,await getDocs(col));//async await→非同期処理
+  console.log("ここは動いている")
+  const col=collection(db,'posts');
+  // const querySnapshot =await getDocs(col);
+  //試しに書いてみる
+    const q = query(collection(db,"posts"))
+    const unsubscribe =onSnapshot(q,async (querySnapshot) => {
+           
+
+        querySnapshot.docs.forEach(async (doc)=>{
+          
+         
+          // console.log(docs)
+          // console.log("doc.data()の中身")
+          // console.log(doc.data());
+          // console.log(doc.id)
+          // console.log(await getDocs(col))
+          console.log(doc.data())
+          posts.push({...doc.data(),id:doc.id})
+        }
+        )        
+    })
+    
+    // unsubscribe()　これだと動かない
+    unsubscribe
+  console.log("postsです")
+  console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
+  console.log(posts)
   return posts
   // return postsArray
 } 

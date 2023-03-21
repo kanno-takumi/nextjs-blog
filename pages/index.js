@@ -16,7 +16,6 @@ import ScrollHint from 'scroll-hint';
 
 export async function getServerSideProps(){//getStaticPropsはpageからのみエクスポートされる
   // const allPostsData=getSortedPostsData();//allPostsDataはid,title,contentを持った配列
-
   const allPostsData=await getSortedPostsData();
   // console.log("aaaaaaaaaaa")
   // console.log(allPostsData)
