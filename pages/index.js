@@ -73,8 +73,9 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
         <li className={utilStyles.listItem} key={id} >
           <Link href={`/posts/${id}`}>{title}</Link>{/*ダイナミックルーティングに対応*/}
             <small className={utilStyles.lightText}>{/*smallタグ→テキストを一回り小さくするタグ */}
-            <br />
-            {date}
+            <div className={utilStyles.lightText}>
+              <Date dateString={date}/>
+            </div>
             </small>
             {console.log({date})}
         </li>

@@ -45,8 +45,7 @@ export async function getPosts() {//promiseオブジェクトを返す
     // console.log(post)//表示される
     posts.push({...post,id:doc.id })
   });
-    
-    // unsubscribe()　これだと動かない
+  
   console.log("postsです")
   console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
   console.log(posts)
@@ -54,25 +53,8 @@ export async function getPosts() {//promiseオブジェクトを返す
   // return postsArray
 } 
 
-// export async function posts(){
-//     const postsList=await getPosts(db); 
-//     return postsList;
-// }
-
-// export async function getPostsfromId(id){
-//   const posts=[];
-//   const db=getFirestore(app);
-//   const q=query(collection(db,"posts")
-//   ,where(documentId(),'==',id));
-//   const querySnapshot=await getDocs(q);
-  
-//   console.log(querySnapshot)
-//   return querySnapshot;
-// }
-
 export async function addPosts(postData){
   try {
-    console.log("aaaaaaaaaaaaaa")
     const docRef = await addDoc(collection(db, "posts"), {
       content:postData.content,
       date: postData.date,

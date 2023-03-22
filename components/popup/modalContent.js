@@ -38,7 +38,7 @@ export default function modalContent(props){
 
                 <div className={modalStyles.formLayout}>
                 <label htmlFor="date" > 　　日付　</label>
-                <input name="date" id="date" type="number" className={modalStyles.textLayout} {...register('date')}/>
+                <input name="date" id="date" type="date" className={modalStyles.textLayout} {...register('date')}/>
                 </div>
 
                 <div className={modalStyles.formLayout}>
