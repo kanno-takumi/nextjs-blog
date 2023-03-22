@@ -45,7 +45,6 @@ export default function modalContent(props){
                 <div className={modalStyles.textPosition}>　　内容</div>
                 <label htmlFor="content" >　　　　　</label>
                 <textarea name="content" id="content" type="text" rows="12" cols="50" wrap="soft" className={`${modalStyles.textLayout} `} {...register('content')}>
-                日付は8桁の数字で入力
                 </textarea>
                 </div>
 
