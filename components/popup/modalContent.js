@@ -1,7 +1,7 @@
 import * as React from 'react';
 import modalStyles from '../../styles/popup/modal.module.css'
 import { useForm } from 'react-hook-form';
-import {addPosts} from '../../firebase/firebase'
+import {addPosts,getPosts} from '../../firebase/firebase'
 import Router,{useRouter} from 'next/router'
 
 // formValues ={
@@ -23,6 +23,7 @@ export default function modalContent(props){
         console.log(data) ;
         props.propsopenModal(false);
         await addPosts(data);
+        await getPosts();
         router.reload(); 
     }
     

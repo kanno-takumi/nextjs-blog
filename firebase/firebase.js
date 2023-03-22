@@ -35,29 +35,18 @@ export async function getPosts() {//promiseオブジェクトを返す
   const posts=[];//オブジェクトの配列
   // const querySnapshot = onSnapshot(docQuery,await getDocs(col));//async await→非同期処理
   console.log("ここは動いている")
-  const col=collection(db,'posts');
+  const col= collection(db,'posts');
   // const querySnapshot =await getDocs(col);
   //試しに書いてみる
-    const q = query(collection(db,"posts"))
-    const unsubscribe =onSnapshot(q,async (querySnapshot) => {
-           
-
-        querySnapshot.docs.forEach(async (doc)=>{
-          
-         
-          // console.log(docs)
-          // console.log("doc.data()の中身")
-          // console.log(doc.data());
-          // console.log(doc.id)
-          // console.log(await getDocs(col))
-          console.log(doc.data())
-          posts.push({...doc.data(),id:doc.id})
-        }
-        )        
-    })
+  const Col = collection(db, 'posts');
+  const querySnapshot = await getDocs(Col);//async await→非同期処理
+  querySnapshot.forEach((doc) =>
+  { const post=doc.data() 
+    // console.log(post)//表示される
+    posts.push({...post,id:doc.id })
+  });
     
     // unsubscribe()　これだと動かない
-    unsubscribe
   console.log("postsです")
   console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
   console.log(posts)
