@@ -2,7 +2,7 @@
 // import {FC} from 'react'
 // import {usePosts} from '../../hooks/usePosts'
 
-// export default function fire(){
+export default function fire(){
 //     const {isLoading,posts}=usePosts()
 //     if(isLoading) return <p>Loading...</p>
 //     return (
@@ -23,7 +23,7 @@
 //         </>
 //     )
     
-// }
+}
     // const mydata=[]
     // const [data,setData]=useState(mydata)
     // // const [message,setMessage]=useState('wait')
