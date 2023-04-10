@@ -3,6 +3,10 @@
 // import {usePosts} from '../../hooks/usePosts'
 
 export default function fire(){
+        return (
+        <>
+        </>
+        )
 //     const {isLoading,posts}=usePosts()
 //     if(isLoading) return <p>Loading...</p>
 //     return (
