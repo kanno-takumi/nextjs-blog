@@ -105,7 +105,7 @@ export default function Layout({children,home}){
             <footer className={styles.footer}>
                 <div className={utilStyles.padding10px}>
                 <div className={utilStyles.headingMd}>
-                <a href="http://www.ktkr2020.com/myapps/portfolio/kanno-takumi.jsp" >過去のポートフォリオはこちら</a>
+                <a href="" >カフェアプリ作成中</a>
                 </div>
                 </div>
             </footer>
