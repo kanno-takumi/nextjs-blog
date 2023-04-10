@@ -1,29 +1,29 @@
 // import  {getPosts,sample} from '../../firebase/firebase'
 // import {FC} from 'react'
-import {usePosts} from '../../hooks/usePosts'
+// import {usePosts} from '../../hooks/usePosts'
 
-export default function fire(){
-    const {isLoading,posts}=usePosts()
-    if(isLoading) return <p>Loading...</p>
-    return (
-        <>
-            {/* <table> */}
+// export default function fire(){
+//     const {isLoading,posts}=usePosts()
+//     if(isLoading) return <p>Loading...</p>
+//     return (
+//         <>
+//             {/* <table> */}
             
-            <div>
-                {posts.map((post)=>(
-                    <>
-                    <div>{post.date}</div>   
-                    <div>{post.title}</div>
-                    <div>{post.content}</div>
-                    </>
-                ))}
-              {console.log(posts)}
-            </div>
-            {/* </table> */}
-        </>
-    )
+//             <div>
+//                 {posts.map((post)=>(
+//                     <>
+//                     <div>{post.date}</div>   
+//                     <div>{post.title}</div>
+//                     <div>{post.content}</div>
+//                     </>
+//                 ))}
+//               {console.log(posts)}
+//             </div>
+//             {/* </table> */}
+//         </>
+//     )
     
-}
+// }
     // const mydata=[]
     // const [data,setData]=useState(mydata)
     // // const [message,setMessage]=useState('wait')
