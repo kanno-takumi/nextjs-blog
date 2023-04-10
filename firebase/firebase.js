@@ -43,7 +43,9 @@ export async function getPosts() {//promiseオブジェクトを返す
   querySnapshot.forEach((doc) =>
   { const post=doc.data() 
     // console.log(post)//表示される
+    if(post.show==true){
     posts.push({...post,id:doc.id })
+    }
   });
   
   console.log("postsです")
@@ -58,7 +60,8 @@ export async function addPosts(postData){
     const docRef = await addDoc(collection(db, "posts"), {
       content:postData.content,
       date: postData.date,
-      title: postData.title
+      title: postData.title,
+      show: true
     });
     console.log("Document written with ID: ", docRef.id);
   } catch (e) {
