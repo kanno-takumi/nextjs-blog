@@ -105,7 +105,7 @@ export default function Layout({children,home}){
             <footer className={styles.footer}>
                 <div className={utilStyles.padding10px}>
                 <div className={utilStyles.headingMd}>
-                <a href="" >カフェアプリ作成中</a>
+                <a href="https://cafelog.vercel.app/" >カフェアプリ作成中</a>
                 </div>
                 </div>
             </footer>
