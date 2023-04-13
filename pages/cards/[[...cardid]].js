@@ -31,7 +31,7 @@ export default function Card({ cardData }) {//getStaticPropsから受け取っ�
 }
 
 
-export async function getServerSideProps({ params }) {
+export async function getStaticProps({ params }) {
   console.log("params")
   console.log(params)
   //getCardDataの引数はid
