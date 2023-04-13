@@ -1,7 +1,7 @@
 ---
 order: 3
 title: '趣味'
-content: 'バレーボール、ピアノ、カフェ、スノボ、ドライブ'
+content: 'バレーボール、スノボ、ピアノ、カフェ巡り'
 date: '2023-01-29'
 imagepath: '/images/profile_scenery.jpg'
 ---

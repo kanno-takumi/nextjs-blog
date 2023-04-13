@@ -19,12 +19,12 @@ export default function Card({ cardData }) {//getStaticPropsから受け取っ�
         <title>{cardData.title}</title>
       </Head>
       <article>
-        <h1 className={utilStyles.headingXl}>{cardData.title}</h1>
+        <div className={utilStyles.headingXl}>{cardData.title}</div>
         <div className={utilStyles.lightText}>
           <Date dateString={cardData.date} />
         </div>
         {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
-        <h2 className={utilStyles.headingMd}>{cardData.content}</h2>
+        <div className={utilStyles.headingMd}>{cardData.content}</div>
       </article>
     </Layout>
   )

@@ -22,7 +22,7 @@ export default function Post({ postData }) {//postDataは単一のデータ
         </div>
         </div>
         {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
-        <h2 className={utilStyles.headingMd}>{postData.content}</h2>
+        <div className={utilStyles.headingMd}>{postData.content}</div>
       </article>
     </Layout>
   )

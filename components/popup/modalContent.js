@@ -50,20 +50,6 @@ export default function modalContent(props){
 
 
                 <button type="submit" className={modalStyles.button}>決定</button>
-
-
-                {/* <div className={modalStyles.button}
-                onClick={async (event)=>{
-                    
-                    console.log(title);
-                    console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
-                    const value=event.target.value;
-                    props.propsopenModal(false);
-                    await addPosts({title,date,content});
-                    // router.reload();          
-                }}>
-                   確定
-                </div> */}
             </form>
         </>
     )
