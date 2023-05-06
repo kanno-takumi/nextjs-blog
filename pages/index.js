@@ -8,6 +8,7 @@ import Layout,{siteTitle} from '../components/layout';
 import { getSortedPostsData } from '../lib/posts';
 import { getSortedCardsData } from '../lib/cards';
 import Card from '../components/card';
+import { getMarkdownPaths } from '../firebase/firebase';
 
 // import Modal from '../components/popup/modal'
 import ModalFunc from '../components/popup/modalFunc'
@@ -17,12 +18,12 @@ import ScrollHint from 'scroll-hint';
 export async function getServerSideProps(){//getStaticPropsはpageからのみエクスポートされる
   // const allPostsData=getSortedPostsData();//allPostsDataはid,title,contentを持った配列
   const allPostsData=await getSortedPostsData();
-  // console.log("aaaaaaaaaaa")
-  // console.log(allPostsData)
   const allCardsData=getSortedCardsData();
-
-  // console.log("allPostsDataの値＝getSortedPostsDataの値")
-  // console.log(allPostsData)
+  allPostsData.map(async (postData) => {
+      const url = await getMarkdownPaths(allPostsData)
+      allPostsData.push({...postData,markdownURL:url})
+  })
+  
   
   return{
     props:{//propsの中でalllpostsDataを返すことでHomeコンポーネントにpropとして渡す
