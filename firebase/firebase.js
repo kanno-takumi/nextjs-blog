@@ -1,8 +1,9 @@
 import { initializeApp } from 'firebase/app';
 import { getFirestore, collection, getDocs,query,where,addDoc,onSnapshot,doc} from 'firebase/firestore';
-import { documentId } from 'firebase/firestore';
-import React,{useState} from 'react';
-import { siteTitle } from '../components/layout';
+// import { documentId } from 'firebase/firestore';
+// import React,{useState} from 'react';
+// import { siteTitle } from '../components/layout';
+import {getStorage,ref,getDownloadURL} from "firebase/storage";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -34,7 +35,7 @@ const db = getFirestore(app);
 export async function getPosts() {//promiseオブジェクトを返す
   const posts=[];//オブジェクトの配列
   // const querySnapshot = onSnapshot(docQuery,await getDocs(col));//async await→非同期処理
-  console.log("ここは動いている")
+  console.log("動作確認")
   const col= collection(db,'posts');
   // const querySnapshot =await getDocs(col);
   //試しに書いてみる
@@ -69,3 +70,9 @@ export async function addPosts(postData){
   }
 }
 
+export async function getMarkdownPaths(postData){
+  const storage = getStorage();
+  const fileName = postData.markdownName
+  const markdownRef = ref(storage,fileName)
+  const url = await getDownloadURL(markdownRef)
+}

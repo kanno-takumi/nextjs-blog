@@ -4,13 +4,10 @@ import Head from 'next/head'
 import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
 import { getPostsfromId } from '../../firebase/firebase'
-import TurndownService from 'turndown'
-import ReactMarkdown from 'react-markdown'
 
 
 //getstaticpropsからpostDataを取得する
-export default function Post({ postData }) {//postDataは単一のデータ
-  // const turndownService = new TurndownService();
+export default function Post({ postData}) {//postDataは単一のデータ
   console.log("postData")
   console.log("あああああああああ")
   console.log(postData)
@@ -26,7 +23,9 @@ export default function Post({ postData }) {//postDataは単一のデータ
           <Date dateString={postData.date}/>
         </div>
         </div>
+        {/* //markdownを使うときに使う */}
         {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
+        {/* <div className={utilStyles.headingMd}>{postData.content}</div> */}
         <div className={utilStyles.headingMd}>{postData.content}</div>
       </article>
     </Layout>
