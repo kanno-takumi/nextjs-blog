@@ -16,10 +16,11 @@ export default function modalContent(props){
     const {register,handleSubmit}=useForm();
     const onSubmit =async (data) => {
         console.log(data) ;
+        console.log("動いているか確認動いているか確認")
         props.propsopenModal(false);
         await addPosts(data);
         await getPosts();
-        router.reload(); 
+        // router.reload(); 
     }
     
 

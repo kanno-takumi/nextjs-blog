@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs,query,where,setDoc,onSnapshot,doc} from 'firebase/firestore';
+import { getFirestore, collection, getDocs,query,where,setDoc,addDoc,onSnapshot,doc} from 'firebase/firestore';
 // import { documentId } from 'firebase/firestore';
 // import React,{useState} from 'react';
 // import { siteTitle } from '../components/layout';
