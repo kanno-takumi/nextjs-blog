@@ -1,9 +1,10 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs,query,where,addDoc,onSnapshot,doc} from 'firebase/firestore';
+import { getFirestore, collection, getDocs,query,where,setDoc,onSnapshot,doc} from 'firebase/firestore';
 // import { documentId } from 'firebase/firestore';
 // import React,{useState} from 'react';
 // import { siteTitle } from '../components/layout';
 import {getStorage,ref,getDownloadURL} from "firebase/storage";
+import { getAnalytics } from "firebase/analytics";
 
 // Your web app's Firebase configuration
 // For Firebase JS SDK v7.20.0 and later, measurementId is optional
@@ -26,6 +27,7 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
+// const analytics = getAnalytics(app);
 
 // Get a list of cities from your database
 
@@ -70,9 +72,14 @@ export async function addPosts(postData){
   }
 }
 
-export async function getMarkdownPaths(postData){
+
+
+//blogでテキストの代わりにmarkdownファイルを読み込むためのメソッド
+export async function getMarkdownPaths(postData){//1つだけmarkdownファイルのパスを取り出す（呼ばれたとき）
   const storage = getStorage();
-  const fileName = postData.markdownName
-  const markdownRef = ref(storage,fileName)
-  const url = await getDownloadURL(markdownRef)
+  const markdownsRef = ref(storage,'images');
+  const fileName =await postData.markdownName
+  const spaceRef = ref(markdownsRef,fileName)
+  const url = await getDownloadURL(spaceRef)
+  return url
 }

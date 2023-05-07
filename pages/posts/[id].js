@@ -4,7 +4,7 @@ import Head from 'next/head'
 import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
 import { getPostsfromId } from '../../firebase/firebase'
-
+import { getMarkdownPaths } from '../../firebase/firebase'
 
 //getstaticpropsからpostDataを取得する
 export default function Post({ postData}) {//postDataは単一のデータ
@@ -47,6 +47,10 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({params}) {//params→url開いたときにparameterでもらう変数のこと→一度に１つしか受け取らない
   const postData =await getPostData(params);//1つのデータ
+  //markdown用
+  // const postData = [];
+  //   const url = await getMarkdownPaths(postData)
+  //   postData.push({...prePostData,markdownURL:url})
   console.log("これで最後")
   console.log(postData)
 

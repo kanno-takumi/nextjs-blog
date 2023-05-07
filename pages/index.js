@@ -19,10 +19,6 @@ export async function getServerSideProps(){//getStaticPropsはpageからのみ�
   // const allPostsData=getSortedPostsData();//allPostsDataはid,title,contentを持った配列
   const allPostsData=await getSortedPostsData();
   const allCardsData=getSortedCardsData();
-  allPostsData.map(async (postData) => {
-      const url = await getMarkdownPaths(allPostsData)
-      allPostsData.push({...postData,markdownURL:url})
-  })
   
   
   return{
