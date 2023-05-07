@@ -20,7 +20,7 @@ export default function modalContent(props){
         props.propsopenModal(false);
         await addPosts(data);
         await getPosts();
-        // router.reload(); 
+        router.reload(); 
     }
     
 
