@@ -9,7 +9,6 @@ import { getMarkdownPaths } from '../../firebase/firebase'
 //getstaticpropsからpostDataを取得する
 export default function Post({ postData}) {//postDataは単一のデータ
   console.log("postData")
-  console.log("あああああああああ")
   console.log(postData)
   return (
     <Layout>
@@ -24,9 +23,8 @@ export default function Post({ postData}) {//postDataは単一のデータ
         </div>
         </div>
         {/* //markdownを使うときに使う */}
-        {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
+        <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} />
         {/* <div className={utilStyles.headingMd}>{postData.content}</div> */}
-        <div className={utilStyles.headingMd}>{postData.content}</div>
       </article>
     </Layout>
   )

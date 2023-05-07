@@ -11,11 +11,6 @@ import Router,{useRouter} from 'next/router'
 // }
 
 export default function modalContent(props){
-    // const { register } = useForm(); 
-    // const title="sample"
-    // const date="20230319"
-    // const content="samplecontent"
-    // let postData = {title,date,content}
     const router = useRouter()
     
     const {register,handleSubmit}=useForm();

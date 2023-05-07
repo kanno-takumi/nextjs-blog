@@ -75,11 +75,11 @@ export async function addPosts(postData){
 
 
 //blogでテキストの代わりにmarkdownファイルを読み込むためのメソッド
-export async function getMarkdownPaths(postData){//1つだけmarkdownファイルのパスを取り出す（呼ばれたとき）
-  const storage = getStorage();
-  const markdownsRef = ref(storage,'images');
-  const fileName =await postData.markdownName
-  const spaceRef = ref(markdownsRef,fileName)
-  const url = await getDownloadURL(spaceRef)
-  return url
-}
+// export async function getMarkdownPaths(postData){//1つだけmarkdownファイルのパスを取り出す（呼ばれたとき）
+//   const storage = getStorage();
+//   const markdownsRef = ref(storage,'images');
+//   const fileName =await postData.markdownName
+//   const spaceRef = ref(markdownsRef,fileName)
+//   const url = await getDownloadURL(spaceRef)
+//   return url
+// }
