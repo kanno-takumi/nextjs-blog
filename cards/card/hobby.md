@@ -12,10 +12,7 @@ title: '趣味'
 imagepath: '/images/profile_volleyball.jpg'
 ---
 
-バレーボール
-
-スノボ
-
-ピアノ
-
-カフェ巡り
+バレーボール  
+スノボ  
+ピアノ  
+カフェ巡り  
