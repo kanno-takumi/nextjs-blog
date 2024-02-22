@@ -17,8 +17,8 @@ export default function Card(props){
                 // priority//スタイルの優先順位
                 src={props.image}
                 // className={styles.profilePictures}
-                height={170}//外枠のpaddingが10のため-20にしておく
-                width={170}
+                height={160}//外枠のpaddingが10のため-20にしておく
+                width={160}
                 alt=""
                 // fill
                 // style={{objectFit:'cover',}}
