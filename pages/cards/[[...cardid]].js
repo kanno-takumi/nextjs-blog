@@ -6,13 +6,16 @@ import utilStyles from '../../styles/utils.module.css'
 import {useRouter} from 'next/router';
 import * as path from 'path'
 
-export default function Card({ cardData }) {//getStaticPropsから受け取ったcardData
+
+export default function Card({ cardData }) {//getStaticPropsから受け取ったcardData json形式で保存
   // const card=()=>{
   //   const router=useRouter();
   //   const{cards,cardid}=router.query;
   // }
+  const contentHtml = cardData.contentHtml
   console.log("cardData")
   console.log(cardData)
+  // console.log(cardData.contentHtml)この部分が本文
   return (
     <Layout>
       <Head>
@@ -21,17 +24,20 @@ export default function Card({ cardData }) {//getStaticPropsから受け取っ�
       <article>
         <div className={utilStyles.headingXl}>{cardData.title}</div>
         <div className={utilStyles.lightText}>
-          <Date dateString={cardData.date} />
+          {/* <Date dateString={cardData.date} /> */}
+          {/* 条件分をつけて消しても良いけど、ここでは日付は必要ないから消す */}
         </div>
-        {/* <div dangerouslySetInnerHTML={{ __html: postData.contentHtml }} /> */}
+        <div className={utilStyles.headingMd} dangerouslySetInnerHTML={{ __html: contentHtml }} />
         <div className={utilStyles.headingMd}>{cardData.content}</div>
+        {/* <div className={utilStyles.headingMd} dangerouslySetInnerHTML={{ __html: contentHtml }}></div> */}
+
       </article>
     </Layout>
   )
 }
 
 
-export async function getStaticProps({ params }) {
+export async function getStaticProps({ params }) {//paramsはページ名を示す
   console.log("params")
   console.log(params)
   //getCardDataの引数はid
