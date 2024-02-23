@@ -57,12 +57,12 @@
     color: #666;
   } */
   .cardsBox{
-    /* width:630px; */
+    width:560px;
     overflow-x: scroll !important;
      -ms-overflow-style: none;
     scrollbar-width: none;
     border-bottom:1px solid;
-    border-width: 5px; 
+    border-width: 3px; 
     padding-bottom: 30px;
     border-color:#F2F2F2;
   }
