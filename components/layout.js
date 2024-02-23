@@ -41,7 +41,7 @@ export default function Layout({children,home,imagename}){
                     priority
                     src={imagepath}
                     // 丸ではなく、正方形にしたい
-                    className={utilStyles.borderSquare}
+                    className={utilStyles.borderCircle}
                     height={144}
                     width={144}
                     alt=""
