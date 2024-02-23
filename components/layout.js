@@ -11,7 +11,7 @@ const name='Takumi Kanno';
 const func_console=(children)=>console.log(children);
 
 export const siteTitle='Next.js Sample Webite'
-export default function Layout({children,home,imagename}){
+export default function Layout({children,home,imagename,text}){
     const imagepath = '/images/' + imagename
     return (
         <div>
@@ -58,6 +58,12 @@ export default function Layout({children,home,imagename}){
     color: inherit;
     /* 親要素を引き継ぐ 
     */}
+    <h2 className={utilStyles.headingLg}>{/**utils.module.css */}
+                        <Link href="/" className={utilStyles.colorInherit}>
+                        {/* <Link href="/"> */}
+                             {text}
+                        </Link>
+                    </h2>
                     </>
                     
                 )}

@@ -17,7 +17,7 @@ export default function Card({cardData}) {//getStaticPropsから受け取ったc
   console.log(cardData)
   // console.log(cardData.contentHtml)この部分が本文
   return (
-    <Layout imagename={cardData.imagename}>
+    <Layout imagename={cardData.imagename} text="Takumi Kanno">
       <Head>
         <title>{cardData.title}</title>
       </Head>
