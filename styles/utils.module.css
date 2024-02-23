@@ -172,3 +172,7 @@
     padding:0 0 1rem 0;
     }
   
+    .postsBox{
+      height:500px;
+      overflow:auto; /* スクロールバーを自動で表示 */
+    }

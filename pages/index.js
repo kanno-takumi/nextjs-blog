@@ -65,7 +65,8 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
       <ul className={utilStyles.list}>{/**ul 箇条書き */}
       {console.log("allPostsDataの値↓")}
       {console.log(allPostsData)}
-
+      
+      <div className={utilStyles.postsBox}>
       {allPostsData.map(({ content, date, title, id }) => (
         <li className={utilStyles.listItem} key={id} >
           <Link href={`/posts/${id}`}>{title}</Link>{/*ダイナミックルーティングに対応*/}
@@ -77,7 +78,9 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
             {console.log({date})}
         </li>
       ))}
-      <ModalFunc />
+      </div>
+      
+      <ModalFunc />{/* ボタン */} 
       </ul>
       </section>
     </Layout>
