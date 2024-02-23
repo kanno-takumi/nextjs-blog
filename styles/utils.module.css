@@ -58,7 +58,7 @@
   } */
   .cardsBox{
     width:560px;
-    overflow-x: scroll !important;
+    /* overflow-x: scroll !important; */
      -ms-overflow-style: none;
     scrollbar-width: none;
     border-bottom:1px solid;
