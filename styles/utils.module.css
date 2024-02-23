@@ -173,6 +173,6 @@
     }
   
     .postsBox{
-      height:500px;
+      height:250px;
       overflow:auto; /* スクロールバーを自動で表示 */
     }
