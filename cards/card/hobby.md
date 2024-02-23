@@ -9,7 +9,7 @@ title: '趣味'
 #   ピアノ
 #   カフェ巡り
 # date: '2023-01-29'
-imagepath: '/images/profile_volleyball.jpg'
+imagepath: '/images/image_hobby.jpg'
 ---
 
 バレーボール  
