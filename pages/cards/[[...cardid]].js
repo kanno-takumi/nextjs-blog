@@ -7,7 +7,7 @@ import {useRouter} from 'next/router';
 import * as path from 'path'
 
 
-export default function Card({ cardData }) {//getStaticPropsから受け取ったcardData json形式で保存
+export default function Card({cardData}) {//getStaticPropsから受け取ったcardData json形式で保存
   // const card=()=>{
   //   const router=useRouter();
   //   const{cards,cardid}=router.query;
@@ -17,7 +17,7 @@ export default function Card({ cardData }) {//getStaticPropsから受け取っ�
   console.log(cardData)
   // console.log(cardData.contentHtml)この部分が本文
   return (
-    <Layout>
+    <Layout imagename={cardData.imagename}>
       <Head>
         <title>{cardData.title}</title>
       </Head>

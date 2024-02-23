@@ -34,7 +34,7 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
   return (
 <div>
 {/* {console1()} */}
-    <Layout home={true}>
+    <Layout home={true} imagename="profile_chiba.jpg">
       <Head>
         <title>{siteTitle}</title>
       </Head>
@@ -51,10 +51,10 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
         {`${utilStyles.flex} ${utilStyles.cardsBox} ${utilStyles.center} ${utilStyles.bottomPadding}
         
         `}>
-    {allCardsData.map(({title, cardidpath, imagepath})=>(
+    {allCardsData.map(({title, cardidpath, imagename})=>(
         
         <Link href={`/cards/${cardidpath}`} >
-          <Card image={imagepath} title={title} />
+          <Card image={"/images/"+imagename} title={title} />
           </Link>
       ))}
       </div >

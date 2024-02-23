@@ -11,7 +11,8 @@ const name='Takumi Kanno';
 const func_console=(children)=>console.log(children);
 
 export const siteTitle='Next.js Sample Webite'
-export default function Layout({children,home}){
+export default function Layout({children,home,imagename}){
+    const imagepath = '/images/' + imagename
     return (
         <div>
             <div className={styles.topcontainer}>
@@ -21,7 +22,7 @@ export default function Layout({children,home}){
                      {/* home=true→ルートディレクトリ(index)の時 */}
                     <Image
                     priority
-                    src="/images/profile_chiba.jpg"
+                    src={imagepath}
                     className={utilStyles.borderCircle}
                     height={144}
                     width={144}
@@ -38,10 +39,11 @@ export default function Layout({children,home}){
                     <Link href="/">
                     <Image
                     priority
-                    src="/images/profile_chiba.jpg"
-                    className={utilStyles.borderCircle}
-                    height={108}
-                    width={108}
+                    src={imagepath}
+                    // 丸ではなく、正方形にしたい
+                    className={utilStyles.borderSquare}
+                    height={144}
+                    width={144}
                     alt=""
                     />
                     </Link>
@@ -56,12 +58,6 @@ export default function Layout({children,home}){
     color: inherit;
     /* 親要素を引き継ぐ 
     */}
-                    <h2 className={utilStyles.headingLg}>{/**utils.module.css */}
-                        <Link href="/" className={utilStyles.colorInherit}>
-                        {/* <Link href="/"> */}
-                             {name}
-                        </Link>
-                    </h2>
                     </>
                     
                 )}

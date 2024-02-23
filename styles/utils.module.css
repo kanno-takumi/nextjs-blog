@@ -29,6 +29,10 @@
   .borderCircle {
     border-radius: 9999px;
   }
+
+  .borderSquare{
+    border-radius: 2px;
+  }
   
   .colorInherit {
     color: inherit;
