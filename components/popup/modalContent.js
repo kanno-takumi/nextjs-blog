@@ -1,8 +1,10 @@
-import * as React from 'react';
+// import * as React from 'react';
 import modalStyles from '../../styles/popup/modal.module.css'
 import { useForm } from 'react-hook-form';
 import {addPosts,getPosts} from '../../firebase/firebase'
 import Router,{useRouter} from 'next/router'
+import React, { useState } from 'react';
+import Image from 'next/image';
 
 // formValues ={
 //     title,
@@ -22,7 +24,42 @@ export default function modalContent(props){
         await getPosts();
         router.reload(); 
     }
-    
+    const [createObject, setCreateObject] = useState(null);
+    const [image, setImage] = useState(null);
+
+    const uploadToClient = (event) => {
+        if (event.target.files && event.target.files[0]) {
+        const file = event.target.files[0];
+    //    console.log("動いている")
+        setImage(file);
+        // console.log(image)
+        // imageUpload(file);
+        setCreateObject(URL.createObjectURL(file));
+    //     console.log(createObject)
+    //     console.log(image)
+        }
+      };
+      const uploadToServer = async (data) => {
+        props.propsopenModal(false);
+        imageUpload(image);//写真を追加する
+        console.log(data);
+        data = {
+            name:data.name,
+            store:data.store,
+            atmosphere:data.atmosphere,
+            explanation:data.explanation,
+            price:Number(data.price),
+            store:data.store,
+            image:image.name,
+        }
+        console.log(data)
+        
+        await addCafeData(data);//データを追加する
+        await getCafeData();
+        router.reload(); 
+        reset();
+    }
+
 
     return(
         <>
@@ -30,6 +67,14 @@ export default function modalContent(props){
                 <div className={modalStyles.formLayout}>
                 <label htmlFor="title">タイトル　</label>
                 <input name="title" id="title" type="text" className={modalStyles.textLayout} {...register('title')}/>
+                </div>
+
+                <div className={modalStyles.formLayout}>
+                <label htmlFor="file-input">写真　　　</label>
+                <input id="file-input" className="hidden" type="file" accept="image/*" name="myImage" onChange={uploadToClient} />
+                <div className={modalStyles.image}>
+                    {createObject && <Image src={createObject} width={50} height={50} className={modalStyles.image}></Image>}
+                </div>
                 </div>
 
                 <div className={modalStyles.formLayout}>

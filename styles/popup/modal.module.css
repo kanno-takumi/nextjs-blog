@@ -78,3 +78,8 @@
 	right:60px;
 	color:black;
 }
+
+.image {
+	/* display: flex; */
+	text-align: center;
+}

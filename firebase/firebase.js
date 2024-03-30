@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, getDocs,query,where,setDoc,addDoc,onSnapshot,doc} from 'firebase/firestore';
+import { getFirestore, collection, getDocs,query,where,addDoc,onSnapshot,doc,setDoc} from 'firebase/firestore';
 // import { documentId } from 'firebase/firestore';
 // import React,{useState} from 'react';
 // import { siteTitle } from '../components/layout';
@@ -83,3 +83,14 @@ export async function addPosts(postData){
 //   const url = await getDownloadURL(spaceRef)
 //   return url
 // }
+
+export async function getImagePaths(postData){
+  const storage = getStorage();
+  const imagesRef = ref(storage, 'images' );
+  // const fileName = postData.image
+  const fileName = "study.jpg"
+  const spaceRef =  ref(imagesRef, fileName);
+  const url=await getDownloadURL(spaceRef)
+  // console.log(url)
+  return url
+  }

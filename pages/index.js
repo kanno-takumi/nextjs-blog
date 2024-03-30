@@ -9,6 +9,7 @@ import { getSortedPostsData } from '../lib/posts';
 import { getSortedCardsData } from '../lib/cards';
 import Card from '../components/card';
 import { getMarkdownPaths } from '../firebase/firebase';
+import { getImagePaths } from '../firebase/firebase';
 
 // import Modal from '../components/popup/modal'
 import ModalFunc from '../components/popup/modalFunc'
@@ -17,8 +18,14 @@ import ScrollHint from 'scroll-hint';
 
 export async function getServerSideProps(){//getStaticPropsはpageからのみエクスポートされる
   // const allPostsData=getSortedPostsData();//allPostsDataはid,title,contentを持った配列
-  const allPostsData=await getSortedPostsData();
-  const allCardsData=getSortedCardsData();
+  const preAllPostsData=await getSortedPostsData(); //取得用
+  const allPostsData = []
+  const allCardsData=getSortedCardsData();//処理後
+  await Promise.all(preAllPostsData.map(async (postData)=>{
+    const url = await getImagePaths(postData)
+    allPostsData.push({...postData,imageurl:url})
+  }))
+  
   
   
   return{
@@ -34,7 +41,7 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
   return (
 <div>
 {/* {console1()} */}
-    <Layout home={true} imagename="profile_chiba.jpg">
+    <Layout home={true} imagepath="/images/profile_chiba.jpg">
       <Head>
         <title>{siteTitle}</title>
       </Head>

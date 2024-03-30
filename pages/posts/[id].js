@@ -3,15 +3,23 @@ import { getAllPostIds, getPostData,getSortedPostsData } from '../../lib/posts'
 import Head from 'next/head'
 import Date from '../../components/date'
 import utilStyles from '../../styles/utils.module.css'
-import { getPostsfromId } from '../../firebase/firebase'
+import { getImagePaths, getPostsfromId } from '../../firebase/firebase'
 import { getMarkdownPaths } from '../../firebase/firebase'
+import Image from 'next/image';
+import styles from '../../components/layout.module.css';
 
-//getstaticpropsからpostDataを取得する
-export default function Post({ postData}) {//postDataは単一のデータ
+
+
+//getstaticpropsからpostDataを取得する(returnが自動的にPostの引数になる)
+export default function Post({postData,imageURL}) {//postDataは単一のデータ
+  
+  
+  console.log(imageURL)
   console.log("postData")
   console.log(postData)
+  
   return (
-    <Layout>
+    <Layout imagepath={imageURL} >
       <Head>
         <title>{postData.title}</title>
       </Head>
@@ -45,6 +53,8 @@ export async function getStaticPaths() {
 
 export async function getStaticProps({params}) {//params→url開いたときにparameterでもらう変数のこと→一度に１つしか受け取らない
   const postData =await getPostData(params);//1つのデータ
+  const imageURL =await getImagePaths(postData);
+  console.log(imageURL)
   //markdown用
   // const postData = [];
   //   const url = await getMarkdownPaths(postData)
@@ -54,7 +64,8 @@ export async function getStaticProps({params}) {//params→url開いたときに
 
   return {
     props: {
-      postData
+      postData,
+      imageURL
     }
   }
 }

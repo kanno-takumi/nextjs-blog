@@ -11,8 +11,7 @@ const name='Takumi Kanno';
 const func_console=(children)=>console.log(children);
 
 export const siteTitle='Next.js Sample Webite'
-export default function Layout({children,home,imagename,text}){
-    const imagepath = '/images/' + imagename
+export default function Layout({children,home,posts,cards,imagepath,text}){
     return (
         <div>
             <div className={styles.topcontainer}>
@@ -41,11 +40,12 @@ export default function Layout({children,home,imagename,text}){
                     priority
                     src={imagepath}
                     // 丸ではなく、正方形にしたい
-                    className={utilStyles.borderCircle}
+                    className={cards?(utilStyles.borderCircle):''}
                     height={144}
                     width={144}
                     alt=""
                     />
+                    
                     </Link>
                     
     {/*     styles/utils.module.css

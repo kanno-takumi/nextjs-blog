@@ -15,9 +15,10 @@ export default function Card({cardData}) {//getStaticPropsから受け取ったc
   const contentHtml = cardData.contentHtml
   console.log("cardData")
   console.log(cardData)
+  const imagepath="/images/"+cardData.imagename
   // console.log(cardData.contentHtml)この部分が本文
   return (
-    <Layout imagename={cardData.imagename} text="Takumi Kanno">
+    <Layout imagepath={imagepath} text="Takumi Kanno" cards={true}>
       <Head>
         <title>{cardData.title}</title>
       </Head>

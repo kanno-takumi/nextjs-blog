@@ -72,7 +72,7 @@
   }
   .cardsBox::-webkit-scrollbar{
     /* display: none; */
-      max-width: 7px;
+      /* max-width: 7px; */
   }
   .cardsBox::-webkit-scrollbar-track {
     background: #F2F2F2;
