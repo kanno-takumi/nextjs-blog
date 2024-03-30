@@ -60,13 +60,7 @@ export async function getPosts() {//promiseオブジェクトを返す
 
 export async function addPosts(postData){
   try {
-    const docRef = await addDoc(collection(db, "posts"), {
-      content:postData.content,
-      date: postData.date,
-      image: postData.image,
-      title: postData.title,
-      show: true
-    });
+    const docRef = await addDoc(collection(db, "posts"), postData);
     console.log("Document written with ID: ", docRef.id);
   } catch (e) {
     console.error("Error adding document: ", e);
@@ -88,8 +82,8 @@ export async function addPosts(postData){
 export async function getImagePaths(postData){
   const storage = getStorage();
   const imagesRef = ref(storage, 'images' );
-  // const fileName = postData.image
-  const fileName = "study.jpg"
+  const fileName = postData.image
+  // const fileName = "study.jpg"
   const spaceRef =  ref(imagesRef, fileName);
   const url=await getDownloadURL(spaceRef)
   // console.log(url)
