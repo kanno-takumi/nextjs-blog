@@ -5,6 +5,7 @@ import {addPosts,getPosts} from '../../firebase/firebase'
 import Router,{useRouter} from 'next/router'
 import React, { useState } from 'react';
 import Image from 'next/image';
+import { imageUpload } from "../../api/upload";
 
 // formValues ={
 //     title,
@@ -14,16 +15,16 @@ import Image from 'next/image';
 
 export default function modalContent(props){
     const router = useRouter()
+    const {register,handleSubmit,reset}=useForm();
     
-    const {register,handleSubmit}=useForm();
-    const onSubmit =async (data) => {
-        console.log(data) ;
-        console.log("動いているか確認動いているか確認")
-        props.propsopenModal(false);
-        await addPosts(data);
-        await getPosts();
-        router.reload(); 
-    }
+    // const onSubmit =async (data) => {
+    //     console.log(data) ;
+    //     console.log("動いているか確認動いているか確認")
+    //     props.propsopenModal(false);
+    //     await addPosts(data);
+    //     await getPosts();
+    //     router.reload(); 
+    // }
     const [createObject, setCreateObject] = useState(null);
     const [image, setImage] = useState(null);
 
@@ -38,32 +39,30 @@ export default function modalContent(props){
     //     console.log(createObject)
     //     console.log(image)
         }
-      };
+      }
+
       const uploadToServer = async (data) => {
+
         props.propsopenModal(false);
         imageUpload(image);//写真を追加する
+        console.log("data")
         console.log(data);
         data = {
-            name:data.name,
-            store:data.store,
-            atmosphere:data.atmosphere,
-            explanation:data.explanation,
-            price:Number(data.price),
-            store:data.store,
-            image:image.name,
+            content : data.content,
+            date : data.date,
+            image : image.name,
+            title : data.title,
+            show: true
         }
-        console.log(data)
-        
-        await addCafeData(data);//データを追加する
-        await getCafeData();
-        router.reload(); 
-        reset();
+        await addPosts(data);//データを追加する
+        // await getPosts();
+        // router.reload(); 
+        // reset();
     }
-
 
     return(
         <>
-            <form onSubmit={handleSubmit(onSubmit)}>
+            <form onSubmit={handleSubmit(uploadToServer)}>
                 <div className={modalStyles.formLayout}>
                 <label htmlFor="title">タイトル　</label>
                 <input name="title" id="title" type="text" className={modalStyles.textLayout} {...register('title')}/>
@@ -71,7 +70,7 @@ export default function modalContent(props){
 
                 <div className={modalStyles.formLayout}>
                 <label htmlFor="file-input">写真　　　</label>
-                <input id="file-input" className="hidden" type="file" accept="image/*" name="myImage" onChange={uploadToClient} />
+                <input id="file-input" className="hidden" type="file" accept="image/*" name="image" onChange={uploadToClient} />
                 <div className={modalStyles.image}>
                     {createObject && <Image src={createObject} width={50} height={50} className={modalStyles.image}></Image>}
                 </div>

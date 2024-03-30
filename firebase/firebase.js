@@ -38,7 +38,7 @@ export async function getPosts() {//promiseオブジェクトを返す
   const posts=[];//オブジェクトの配列
   // const querySnapshot = onSnapshot(docQuery,await getDocs(col));//async await→非同期処理
   console.log("動作確認")
-  const col= collection(db,'posts');
+  // const col= collection(db,'posts');
   // const querySnapshot =await getDocs(col);
   //試しに書いてみる
   const Col = collection(db, 'posts');
@@ -63,6 +63,7 @@ export async function addPosts(postData){
     const docRef = await addDoc(collection(db, "posts"), {
       content:postData.content,
       date: postData.date,
+      image: postData.image,
       title: postData.title,
       show: true
     });
