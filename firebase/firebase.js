@@ -52,7 +52,6 @@ export async function getPosts() {//promiseオブジェクトを返す
   });
   
   console.log("postsです")
-  console.log("aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa")
   console.log(posts)
   return posts
   // return postsArray
