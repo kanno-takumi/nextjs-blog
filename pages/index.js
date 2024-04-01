@@ -21,7 +21,16 @@ export async function getServerSideProps(){//getStaticPropsはpageからのみ�
   const preAllPostsData=await getSortedPostsData(); //取得用
   const allPostsData = []
   const allCardsData=getSortedCardsData();//処理後
+  
   await Promise.all(preAllPostsData.map(async (postData)=>{
+    // if (!postData.image == null) { //imageがnullでないとき=画像があるとき
+    //   const url = null
+    // }
+    // else { //画像が存在しないとき
+    //   console.log("確認")
+    // console.log(await getImagePaths(postData))
+    // const url = await getImagePaths(postData)
+    // }
     const url = await getImagePaths(postData)
     allPostsData.push({...postData,imageurl:url})
   }))
@@ -74,7 +83,7 @@ export default function Home({allPostsData,allCardsData}) {//allPostsDataを使�
       {console.log(allPostsData)}
       
       <div className={utilStyles.postsBox}>
-      {allPostsData.map(({ content, date, title, id }) => (
+      {allPostsData.map(({ date, title, id }) => (
         <li className={utilStyles.listItem} key={id} >
           <Link href={`/posts/${id}`}>{title}</Link>{/*ダイナミックルーティングに対応*/}
             <small className={utilStyles.lightText}>{/*smallタグ→テキストを一回り小さくするタグ */}

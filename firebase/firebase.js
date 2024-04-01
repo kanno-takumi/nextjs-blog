@@ -84,8 +84,11 @@ export async function getImagePaths(postData){
   const imagesRef = ref(storage, 'images' );
   const fileName = postData.image
   // const fileName = "study.jpg"
+  let url = null
+  if(fileName !== null){
   const spaceRef =  ref(imagesRef, fileName);
-  const url=await getDownloadURL(spaceRef)
+  url=await getDownloadURL(spaceRef)
+  }
   // console.log(url)
   return url
   }

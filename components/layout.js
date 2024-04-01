@@ -35,6 +35,7 @@ export default function Layout({children,home,posts,cards,imagepath,text}){
                     </>
                 ):(//条件不一致の場合(post)
                     <>
+                    {imagepath && (
                     <Link href="/">
                     <Image
                     priority
@@ -45,9 +46,8 @@ export default function Layout({children,home,posts,cards,imagepath,text}){
                     width={144}
                     alt=""
                     />
-                    
-                    </Link>
-                    
+                    </Link>      
+                    )}
     {/*     styles/utils.module.css
     .headingLg{
     font-size:1.5rem;

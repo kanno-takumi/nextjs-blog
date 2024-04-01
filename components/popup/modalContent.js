@@ -44,13 +44,15 @@ export default function modalContent(props){
       const uploadToServer = async (data) => {
 
         props.propsopenModal(false);
+        if(image){
         imageUpload(image);//写真を追加する
+        }
         console.log("data")
         console.log(data);
         data = {
             content : data.content,
             date : data.date,
-            image : image.name,
+            image: image ? image.name : null,
             title : data.title,
             show: true
         }
