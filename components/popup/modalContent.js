@@ -71,7 +71,7 @@ export default function modalContent(props){
                 </div>
 
                 <div className={modalStyles.formLayout}>
-                <label htmlFor="file-input">写真　　　</label>
+                <label htmlFor="file-input">　　写真　　</label>
                 <input id="file-input" className="hidden" type="file" accept="image/*" name="image" onChange={uploadToClient} />
                 <div className={modalStyles.image}>
                     {createObject && <Image src={createObject} width={50} height={50} className={modalStyles.image}></Image>}
