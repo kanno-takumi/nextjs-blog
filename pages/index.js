@@ -23,14 +23,6 @@ export async function getServerSideProps(){//getStaticPropsはpageからのみ�
   const allCardsData=getSortedCardsData();//処理後
   
   await Promise.all(preAllPostsData.map(async (postData)=>{
-    // if (!postData.image == null) { //imageがnullでないとき=画像があるとき
-    //   const url = null
-    // }
-    // else { //画像が存在しないとき
-    //   console.log("確認")
-    // console.log(await getImagePaths(postData))
-    // const url = await getImagePaths(postData)
-    // }
     const url = await getImagePaths(postData)
     allPostsData.push({...postData,imageurl:url})
   }))
