@@ -57,9 +57,9 @@ export default function modalContent(props){
             show: true
         }
         await addPosts(data);//データを追加する
-        // await getPosts();
-        // router.reload(); 
-        // reset();
+        await getPosts();
+        router.reload(); 
+        reset();
     }
 
     return(
