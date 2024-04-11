@@ -25,6 +25,7 @@ export default function modalContent(props){
     //     await getPosts();
     //     router.reload(); 
     // }
+
     const [createObject, setCreateObject] = useState(null);
     const [image, setImage] = useState(null);
 
